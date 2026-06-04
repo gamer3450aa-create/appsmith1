@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n    normalize_payment_method(cp.payment_method) AS payment_method,\n    COUNT(*)::integer AS payment_count,\n    COALESCE(SUM(cp.amount), 0)::numeric(14,2) AS total_amount\nFROM customer_payments cp\nWHERE cp.sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId }}, '')::uuid\nGROUP BY normalize_payment_method(cp.payment_method)\nORDER BY payment_method;",
+      "body": "SELECT\n    normalize_payment_method(cp.payment_method) AS payment_method,\n    COUNT(*)::integer AS payment_count,\n    COALESCE(SUM(cp.amount), 0)::numeric(14,2) AS total_amount\nFROM customer_payments cp\nWHERE cp.sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId || \"\" }}, '')::uuid\nGROUP BY normalize_payment_method(cp.payment_method)\nORDER BY payment_method;\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

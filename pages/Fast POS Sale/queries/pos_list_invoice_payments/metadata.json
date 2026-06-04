@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n    cp.*,\n    normalize_payment_method(cp.payment_method) AS normalized_payment_method,\n    t.name AS treasury_name,\n    b.name AS branch_name\nFROM customer_payments cp\nLEFT JOIN treasuries t ON t.id = cp.treasury_id\nLEFT JOIN branches b ON b.id = cp.branch_id\nWHERE cp.sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId }}, '')::uuid\nORDER BY cp.payment_date DESC, cp.created_at DESC;",
+      "body": "SELECT\n    cp.*,\n    normalize_payment_method(cp.payment_method) AS normalized_payment_method,\n    t.name AS treasury_name,\n    b.name AS branch_name\nFROM customer_payments cp\nLEFT JOIN treasuries t ON t.id = cp.treasury_id\nLEFT JOIN branches b ON b.id = cp.branch_id\nWHERE cp.sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId || \"\" }}, '')::uuid\nORDER BY cp.payment_date DESC, cp.created_at DESC;\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

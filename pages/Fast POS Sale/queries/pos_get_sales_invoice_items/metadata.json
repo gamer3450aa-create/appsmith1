@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT *\nFROM vw_sales_invoice_items_detailed\nWHERE sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId }}, '')::uuid\nORDER BY line_number;",
+      "body": "SELECT *\nFROM vw_sales_invoice_items_detailed\nWHERE sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId || \"\" }}, '')::uuid\nORDER BY line_number;\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
