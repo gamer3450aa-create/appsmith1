@@ -2,21 +2,22 @@
   "animateLoading": true,
   "backgroundColor": "#FFFFFF",
   "borderColor": "#CBD5E1",
+  "borderRadius": "1.5rem",
   "borderWidth": "1",
-  "bottomRow": 85,
+  "bottomRow": 284,
   "boxShadow": "0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.08)",
   "children": [
     {
-      "bottomRow": 590,
+      "bottomRow": 200,
       "canExtend": false,
       "containerStyle": "none",
       "detachFromLayout": true,
       "isLoading": false,
       "isVisible": true,
       "leftColumn": 0,
-      "minHeight": 590,
+      "minHeight": 200,
       "parentColumnSpace": 1,
-      "parentId": "h1bvn0crp5",
+      "parentId": "purchase_ocr_action_bar_container_01",
       "parentRowSpace": 1,
       "props": {
         "canExtend": false,
@@ -29,8 +30,8 @@
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
-      "widgetId": "8s1hpygqnc",
-      "widgetName": "Canvas3"
+      "widgetId": "purchase_ocr_action_bar_canvas_01",
+      "widgetName": "CanvasPurchaseOcrActionBar"
     }
   ],
   "containerStyle": "card",
@@ -43,8 +44,8 @@
   "isDeprecated": false,
   "isLoading": false,
   "isVisible": true,
-  "key": "dzgn1w3ch7",
-  "leftColumn": 31,
+  "key": "purchaseocractionbar",
+  "leftColumn": 0,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 10,
   "minWidth": 450,
@@ -56,8 +57,6 @@
     "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
     "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
   },
-  "originalBottomRow": 126,
-  "originalTopRow": 68,
   "parentColumnSpace": 4.328125,
   "parentId": "0",
   "parentRowSpace": 10,
@@ -75,10 +74,9 @@
     "Layout"
   ],
   "thumbnailSVG": "/static/media/thumbnail.6cb355b93146b5347bbb048a568ed446.svg",
-  "topRow": 26,
+  "topRow": 264,
   "type": "CONTAINER_WIDGET",
   "version": 1,
-  "widgetId": "h1bvn0crp5",
-  "widgetName": "ContainerOcrDetails",
-  "borderRadius": "1.5rem"
+  "widgetId": "purchase_ocr_action_bar_container_01",
+  "widgetName": "ContainerPurchaseOcrActionBar"
 }

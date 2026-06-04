@@ -1,18 +1,12 @@
 {
   "animateLoading": true,
-  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 25,
-  "boxShadow": "none",
-  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "borderRadius": "1.5rem",
+  "bottomRow": 17,
+  "boxShadow": "0 10px 15px -3px rgba(15, 23, 42, 0.16), 0 4px 6px -4px rgba(15, 23, 42, 0.12)",
+  "buttonColor": "#10B981",
   "buttonVariant": "PRIMARY",
   "disabledWhenInvalid": false,
   "dynamicBindingPathList": [
-    {
-      "key": "buttonColor"
-    },
-    {
-      "key": "borderRadius"
-    },
     {
       "key": "isDisabled"
     }
@@ -32,12 +26,12 @@
   "isLoading": false,
   "isVisible": true,
   "key": "uxtme9s9qn",
-  "leftColumn": 32,
+  "leftColumn": 54,
   "minWidth": 120,
-  "mobileBottomRow": 206,
-  "mobileLeftColumn": 32,
-  "mobileRightColumn": 48,
-  "mobileTopRow": 202,
+  "mobileBottomRow": 17,
+  "mobileLeftColumn": 54,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 13,
   "needsErrorInfo": false,
   "onClick": "{{purchase_approve_invoice.run().then(() => {\n  purchase_get_pending_approval_.run();\n  purchase_get_invoice_review_he.run();\n  purchase_get_invoice_review_it.run();\n});}}",
   "originalBottomRow": 206,
@@ -50,9 +44,9 @@
   "renderMode": "CANVAS",
   "resetFormOnClick": false,
   "responsiveBehavior": "hug",
-  "rightColumn": 48,
+  "rightColumn": 64,
   "text": "Approve Invoice",
-  "topRow": 21,
+  "topRow": 13,
   "type": "BUTTON_WIDGET",
   "version": 1,
   "widgetId": "yhe6cnc64j",

@@ -22,7 +22,7 @@
   "isDefaultClickDisabled": true,
   "isDisabled": false,
   "isLoading": false,
-  "isVisible": true,
+  "isVisible": false,
   "key": "ocrresetpage",
   "leftColumn": 50,
   "minWidth": 120,

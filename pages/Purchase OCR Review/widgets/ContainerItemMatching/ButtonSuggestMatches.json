@@ -1,18 +1,12 @@
 {
   "animateLoading": true,
-  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 19,
-  "boxShadow": "none",
-  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "borderRadius": "1.5rem",
+  "bottomRow": 24,
+  "boxShadow": "0 10px 15px -3px rgba(15, 23, 42, 0.16), 0 4px 6px -4px rgba(15, 23, 42, 0.12)",
+  "buttonColor": "#F97316",
   "buttonVariant": "PRIMARY",
   "disabledWhenInvalid": false,
   "dynamicBindingPathList": [
-    {
-      "key": "buttonColor"
-    },
-    {
-      "key": "borderRadius"
-    },
     {
       "key": "isDisabled"
     }
@@ -32,12 +26,12 @@
   "isLoading": false,
   "isVisible": true,
   "key": "uxtme9s9qn",
-  "leftColumn": 50,
+  "leftColumn": 47,
   "minWidth": 120,
-  "mobileBottomRow": 147,
+  "mobileBottomRow": 24,
   "mobileLeftColumn": 47,
-  "mobileRightColumn": 63,
-  "mobileTopRow": 143,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 20,
   "needsErrorInfo": false,
   "onClick": "{{purchase_ocr_suggest_product_m.run().then(() => {\n  purchase_ocr_get_item_matches.run();\n});}}",
   "originalBottomRow": 147,
@@ -52,7 +46,7 @@
   "responsiveBehavior": "hug",
   "rightColumn": 64,
   "text": "Suggest Matches",
-  "topRow": 15,
+  "topRow": 20,
   "type": "BUTTON_WIDGET",
   "version": 1,
   "widgetId": "j6mq1tkwb7",

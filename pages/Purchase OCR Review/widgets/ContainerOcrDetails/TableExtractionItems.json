@@ -69,7 +69,7 @@
   "inlineEditingSaveOption": "ROW_LEVEL",
   "isLoading": false,
   "isSortable": true,
-  "isVisible": true,
+  "isVisible": false,
   "isVisibleDownload": true,
   "isVisibleFilters": false,
   "isVisiblePagination": true,

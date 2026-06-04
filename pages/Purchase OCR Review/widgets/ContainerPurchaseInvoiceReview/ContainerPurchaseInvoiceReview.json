@@ -1,10 +1,10 @@
 {
   "animateLoading": true,
   "backgroundColor": "#FFFFFF",
-  "borderColor": "#E0DEDE",
+  "borderColor": "#CBD5E1",
   "borderWidth": "1",
-  "bottomRow": 265,
-  "boxShadow": "NONE",
+  "bottomRow": 231,
+  "boxShadow": "0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.08)",
   "children": [
     {
       "bottomRow": 840,
@@ -14,7 +14,7 @@
       "isLoading": false,
       "isVisible": true,
       "leftColumn": 0,
-      "minHeight": 354.90625,
+      "minHeight": 840,
       "parentColumnSpace": 1,
       "parentId": "rii5nn05vd",
       "parentRowSpace": 1,
@@ -75,9 +75,10 @@
     "Layout"
   ],
   "thumbnailSVG": "/static/media/thumbnail.6cb355b93146b5347bbb048a568ed446.svg",
-  "topRow": 181,
+  "topRow": 147,
   "type": "CONTAINER_WIDGET",
   "version": 1,
   "widgetId": "rii5nn05vd",
-  "widgetName": "ContainerPurchaseInvoiceReview"
+  "widgetName": "ContainerPurchaseInvoiceReview",
+  "borderRadius": "1.5rem"
 }

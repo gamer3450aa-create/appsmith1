@@ -1,20 +1,20 @@
 {
   "animateLoading": true,
   "backgroundColor": "#FFFFFF",
-  "borderColor": "#E0DEDE",
+  "borderColor": "#CBD5E1",
   "borderWidth": "1",
-  "bottomRow": 66,
-  "boxShadow": "NONE",
+  "bottomRow": 105,
+  "boxShadow": "0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.08)",
   "children": [
     {
-      "bottomRow": 410,
+      "bottomRow": 790,
       "canExtend": false,
       "containerStyle": "none",
       "detachFromLayout": true,
       "isLoading": false,
       "isVisible": true,
       "leftColumn": 0,
-      "minHeight": 168.796875,
+      "minHeight": 790,
       "parentColumnSpace": 1,
       "parentId": "9twb18t2yc",
       "parentRowSpace": 1,
@@ -63,7 +63,7 @@
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 64,
+  "rightColumn": 30,
   "searchTags": [
     "div",
     "parent",
@@ -75,9 +75,10 @@
     "Layout"
   ],
   "thumbnailSVG": "/static/media/thumbnail.6cb355b93146b5347bbb048a568ed446.svg",
-  "topRow": 25,
+  "topRow": 26,
   "type": "CONTAINER_WIDGET",
   "version": 1,
   "widgetId": "9twb18t2yc",
-  "widgetName": "ContainerPurchaseOcrQueues"
+  "widgetName": "ContainerPurchaseOcrQueues",
+  "borderRadius": "1.5rem"
 }

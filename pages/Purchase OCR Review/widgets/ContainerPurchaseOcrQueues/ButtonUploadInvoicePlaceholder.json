@@ -22,7 +22,7 @@
   "isDefaultClickDisabled": true,
   "isDisabled": false,
   "isLoading": false,
-  "isVisible": true,
+  "isVisible": false,
   "key": "ocruploadplaceholder",
   "leftColumn": 34,
   "minWidth": 120,

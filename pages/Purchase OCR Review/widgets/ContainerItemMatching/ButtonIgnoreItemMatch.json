@@ -1,18 +1,12 @@
 {
   "animateLoading": true,
-  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 19,
-  "boxShadow": "none",
-  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "borderRadius": "1.5rem",
+  "bottomRow": 24,
+  "boxShadow": "0 10px 15px -3px rgba(15, 23, 42, 0.16), 0 4px 6px -4px rgba(15, 23, 42, 0.12)",
+  "buttonColor": "#EF4444",
   "buttonVariant": "PRIMARY",
   "disabledWhenInvalid": false,
   "dynamicBindingPathList": [
-    {
-      "key": "buttonColor"
-    },
-    {
-      "key": "borderRadius"
-    },
     {
       "key": "isDisabled"
     }
@@ -32,12 +26,12 @@
   "isLoading": false,
   "isVisible": true,
   "key": "uxtme9s9qn",
-  "leftColumn": 18,
+  "leftColumn": 14,
   "minWidth": 120,
-  "mobileBottomRow": 147,
+  "mobileBottomRow": 24,
   "mobileLeftColumn": 14,
-  "mobileRightColumn": 30,
-  "mobileTopRow": 143,
+  "mobileRightColumn": 28,
+  "mobileTopRow": 20,
   "needsErrorInfo": false,
   "onClick": "{{purchase_ocr_ignore_item_match.run().then(() => {\n  purchase_ocr_get_item_matches.run();\n});}}",
   "originalBottomRow": 147,
@@ -50,9 +44,9 @@
   "renderMode": "CANVAS",
   "resetFormOnClick": false,
   "responsiveBehavior": "hug",
-  "rightColumn": 34,
+  "rightColumn": 28,
   "text": "Ignore Item Match",
-  "topRow": 15,
+  "topRow": 20,
   "type": "BUTTON_WIDGET",
   "version": 1,
   "widgetId": "pzbm0ih7vi",
