@@ -30,7 +30,7 @@
   "isDefaultClickDisabled": true,
   "isDisabled": "{{ !TablePurchaseInvoiceItems.selectedRow?.purchase_invoice_item_id }}",
   "isLoading": false,
-  "isVisible": true,
+  "isVisible": false,
   "key": "uxtme9s9qn",
   "leftColumn": 32,
   "minWidth": 120,

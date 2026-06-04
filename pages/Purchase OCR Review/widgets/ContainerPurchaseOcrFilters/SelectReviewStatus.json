@@ -58,7 +58,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 64,
   "serverSideFiltering": false,
-  "sourceData": "[\n  { \"label\": \"All Reviews\", \"value\": \"\" },\n  { \"label\": \"Pending\", \"value\": \"pending\" },\n  { \"label\": \"Accepted\", \"value\": \"accepted\" },\n  { \"label\": \"Rejected\", \"value\": \"rejected\" },\n  { \"label\": \"Converted\", \"value\": \"converted\" }\n]",
+  "sourceData": "[\n  { \"label\": \"All Reviews\", \"value\": \"\" },\n  { \"label\": \"Pending\", \"value\": \"pending\" },\n  { \"label\": \"In Review\", \"value\": \"in_review\" },\n  { \"label\": \"Accepted\", \"value\": \"accepted\" },\n  { \"label\": \"Rejected\", \"value\": \"rejected\" },\n  { \"label\": \"Converted\", \"value\": \"converted\" }\n]",
   "topRow": 0,
   "type": "SELECT_WIDGET",
   "version": 1,

@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "6a18d17583dcde86e3939d70_purchase-ocr-actions",
+  "id": "Purchase OCR Review_PurchaseOcrActions",
+  "unpublishedCollection": {
+    "name": "PurchaseOcrActions",
+    "pageId": "Purchase OCR Review",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

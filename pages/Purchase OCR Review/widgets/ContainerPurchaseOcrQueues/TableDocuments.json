@@ -93,7 +93,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 61,
   "searchKey": "",
-  "tableData": "{{ Array.isArray(purchase_ocr_list_uploaded_doc.data) ? purchase_ocr_list_uploaded_documents_queue.data : [] }}",
+  "tableData": "{{ Array.isArray(purchase_ocr_list_uploaded_doc.data) ? purchase_ocr_list_uploaded_doc.data : [] }}",
   "textSize": "0.875rem",
   "topRow": 11,
   "totalRecordsCount": 0,
