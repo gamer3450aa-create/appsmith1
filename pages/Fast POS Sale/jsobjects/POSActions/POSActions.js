@@ -7,7 +7,14 @@ export default {
     await resetWidget("InputCartQuantity", true);
     await resetWidget("InputUnitPrice", true);
     await resetWidget("InputPaymentAmount", true);
+    await resetWidget("InputInvoiceDiscount", true);
+    await resetWidget("InputInvoiceTax", true);
+    await resetWidget("TextAreaInvoiceNotes", true);
+    await resetWidget("SelectCustomer", true);
     await resetWidget("SelectPaymentMethod", true);
+    await resetWidget("SelectBranch", true);
+    await resetWidget("SelectWarehouse", true);
+    await resetWidget("SelectTreasury", true);
     await resetWidget("TableProductResults", true);
     await resetWidget("TableCart", true);
 
@@ -15,6 +22,17 @@ export default {
       await resetWidget("TableInvoiceHeader", true);
     }
 
+    await pos_list_active_branches.run();
+    await pos_list_active_customers.run();
+    await pos_get_default_branch.run();
+    await pos_get_default_warehouse.run();
+    await pos_get_default_treasury.run();
+    await pos_list_warehouses_by_branch.run();
+    await pos_list_treasuries_by_branch.run();
+    await pos_get_sales_invoice_draft.run();
+    await pos_get_sales_invoice_items.run();
+    await pos_list_invoice_payments.run();
+    await pos_get_payment_methods_summar.run();
     await pos_search_products_for_sale.run();
   },
 

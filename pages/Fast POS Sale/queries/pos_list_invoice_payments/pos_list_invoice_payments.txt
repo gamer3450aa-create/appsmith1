@@ -6,5 +6,5 @@ SELECT
 FROM customer_payments cp
 LEFT JOIN treasuries t ON t.id = cp.treasury_id
 LEFT JOIN branches b ON b.id = cp.branch_id
-WHERE cp.sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId }}, '')::uuid
+WHERE cp.sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId || "" }}, '')::uuid
 ORDER BY cp.payment_date DESC, cp.created_at DESC;

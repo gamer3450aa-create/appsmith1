@@ -12,4 +12,4 @@ SELECT
         AND COALESCE(NULLIF({{ InputPaymentAmount.text }}, '')::numeric, 0) <= si.remaining_amount
     ) AS can_accept_payment
 FROM vw_sales_invoices_summary si
-WHERE si.sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId }}, '')::uuid;
+WHERE si.sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId || "" }}, '')::uuid;

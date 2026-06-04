@@ -35,7 +35,7 @@
   "mobileRightColumn": 8,
   "mobileTopRow": 46,
   "needsErrorInfo": false,
-  "onClick": "{{pos_create_sales_invoice_draft.run().then(() => {\n  pos_create_sales_invoice_draft.run();\n  storeValue('currentSalesInvoiceId', pos_create_sales_invoice_draft.data?.[0]?.sales_invoice_id || pos_create_sales_invoice_draft.data?.[0]?.id || \"\");\n  pos_get_sales_invoice_draft.run();\n  pos_get_sales_invoice_items.run();\n  pos_search_products_for_sale.run();\n});}}",
+  "onClick": "{{pos_create_sales_invoice_draft.run().then(() => {\n  const created = Array.isArray(pos_create_sales_invoice_draft.data)\n    ? (pos_create_sales_invoice_draft.data[0] || {})\n    : (pos_create_sales_invoice_draft.data || {});\n\n  return storeValue('currentSalesInvoiceId', created.sales_invoice_id || created.id || \"\").then(() => {\n    pos_get_sales_invoice_draft.run();\n    pos_get_sales_invoice_items.run();\n    pos_list_invoice_payments.run();\n    pos_get_payment_methods_summar.run();\n    pos_search_products_for_sale.run();\n  });\n});}}",
   "originalBottomRow": 27,
   "originalTopRow": 23,
   "parentColumnSpace": 2.3525848388671875,

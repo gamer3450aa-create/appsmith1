@@ -27,7 +27,7 @@
   "mobileRightColumn": 16,
   "mobileTopRow": 118,
   "needsErrorInfo": false,
-  "onClick": "{{navigateTo(\"Fast POS Sale\");}}",
+  "onClick": "{{POSActions.resetPOS();}}",
   "originalBottomRow": 122,
   "originalTopRow": 118,
   "parentColumnSpace": 18.59375,

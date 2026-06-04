@@ -4,7 +4,7 @@
   "borderRadius": "1.5rem",
   "bottomRow": 7,
   "boxShadow": "none",
-  "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( \"Cash\"))(SelectPaymentMethod.options, SelectPaymentMethod.serverSideFiltering) }}",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (\"cash\"))(SelectPaymentMethod.options, SelectPaymentMethod.serverSideFiltering) }}",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
@@ -57,7 +57,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 20,
   "serverSideFiltering": false,
-  "sourceData": "{{\n[\n  { label: \"Cash\", value: \"cash\" },\n  { label: \"Card\", value: \"card\" },\n  { label: \"Bank Transfer\", value: \"bank_transfer\" },\n  { label: \"InstaPay\", value: \"instapay\" }\n]\n}}",
+  "sourceData": "{{\n[\n  { label: \"Cash\", value: \"cash\" },\n  { label: \"Card\", value: \"card\" },\n  { label: \"Bank Transfer\", value: \"bank_transfer\" },\n  { label: \"Wallet\", value: \"wallet\" },\n  { label: \"Vodafone Cash\", value: \"vodafone_cash\" },\n  { label: \"InstaPay\", value: \"instapay\" },\n  { label: \"Other\", value: \"other\" }\n]\n}}",
   "topRow": 0,
   "type": "SELECT_WIDGET",
   "version": 1,

@@ -4,7 +4,7 @@
   "borderRadius": "1.5rem",
   "bottomRow": 24,
   "boxShadow": "none",
-  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  pos_list_active_customers.data.value || \"\" ))(SelectCustomer.options, SelectCustomer.serverSideFiltering) }}",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (\"\"))(SelectCustomer.options, SelectCustomer.serverSideFiltering) }}",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
@@ -52,7 +52,7 @@
   "parentColumnSpace": 2.3525848388671875,
   "parentId": "u7jon25pdj",
   "parentRowSpace": 10,
-  "placeholderText": "Select option",
+  "placeholderText": "Walk-in / optional customer",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
   "rightColumn": 29.333333333333332,
