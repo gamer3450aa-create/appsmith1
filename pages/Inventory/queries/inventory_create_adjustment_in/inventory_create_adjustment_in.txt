@@ -1,0 +1,9 @@
+SELECT create_stock_adjustment(
+    {{ SelectBranch.selectedOptionValue }}::uuid,
+    {{ SelectWarehouse.selectedOptionValue }}::uuid,
+    {{ SelectProduct.selectedOptionValue }}::uuid,
+    abs({{ InputAdjustmentQuantity.text }}::numeric),
+    NULLIF({{ InputUnitCost.text }}, '')::numeric,
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    NULLIF({{ TextAreaMovementNotes.text }}, '')
+) AS stock_movement_id;

@@ -1,0 +1,32 @@
+SELECT *
+FROM vw_expenses_summary
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectTreasury.selectedOptionValue }}, '') IS NULL
+      OR treasury_id = NULLIF({{ SelectTreasury.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectExpenseCategory.selectedOptionValue }}, '') IS NULL
+      OR category_id = NULLIF({{ SelectExpenseCategory.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectStatus.selectedOptionValue }}, '') IS NULL
+      OR status = {{ SelectStatus.selectedOptionValue }}
+  )
+  AND (
+      NULLIF({{ SelectPaymentMethod.selectedOptionValue }}, '') IS NULL
+      OR payment_method = {{ SelectPaymentMethod.selectedOptionValue }}
+  )
+  AND (
+      NULLIF({{ DateExpensesFrom.selectedDate }}, '') IS NULL
+      OR expense_date >= NULLIF({{ DateExpensesFrom.selectedDate }}, '')::date
+  )
+  AND (
+      NULLIF({{ DateExpensesTo.selectedDate }}, '') IS NULL
+      OR expense_date <= NULLIF({{ DateExpensesTo.selectedDate }}, '')::date
+  )
+ORDER BY expense_date DESC, expense_number DESC
+LIMIT 200;

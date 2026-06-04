@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 18,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "buttonColor": "#ef4444",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "cross",
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{\n  !appsmith.store.currentSalesInvoiceId\n  || TableInvoiceHeader.tableData?.[0]?.status === \"approved\"\n  || TableInvoiceHeader.tableData?.[0]?.status === \"cancelled\"\n  || Number(TableInvoiceHeader.tableData?.[0]?.paid_amount || 0) > 0\n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "zippv9f5w8",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 113,
+  "mobileLeftColumn": 9,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 109,
+  "needsErrorInfo": false,
+  "onClick": "{{pos_cancel_sales_invoice.run().then(() => {\n  POSActions.resetPOS();\n});}}",
+  "originalBottomRow": 30,
+  "originalTopRow": 26,
+  "parentColumnSpace": 5.952392578125,
+  "parentId": "s8mtr2bklt",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 29,
+  "text": "Cancel Invoice",
+  "topRow": 14,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "l7ldx7z4ob",
+  "widgetName": "ButtonCancelInvoice"
+}

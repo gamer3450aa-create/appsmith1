@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 39,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{ TableBusinessProfiles.selectedRow?.is_default ?? false }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "gvicx0okv2",
+  "label": "Default Profile",
+  "labelPosition": "Left",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 788,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 12,
+  "mobileTopRow": 784,
+  "needsErrorInfo": false,
+  "originalBottomRow": 40,
+  "originalTopRow": 35,
+  "parentColumnSpace": 4.328125,
+  "parentId": "4ccdupme84",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 41,
+  "topRow": 35,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "yt36xmol4z",
+  "widgetName": "SwitchDefaultProfile"
+}

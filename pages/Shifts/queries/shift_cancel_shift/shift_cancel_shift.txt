@@ -1,0 +1,5 @@
+SELECT cancel_shift(
+    {{ TableShifts.selectedRow.shift_id }}::uuid,
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    NULLIF({{ TextAreaCancelNotes.text }}, '')
+);

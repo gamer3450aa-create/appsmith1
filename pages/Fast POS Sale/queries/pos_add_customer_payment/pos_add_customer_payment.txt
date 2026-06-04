@@ -1,0 +1,31 @@
+INSERT INTO customer_payments (
+    customer_id,
+    sales_invoice_id,
+    payment_number,
+    payment_date,
+    amount,
+    payment_method,
+    treasury_id,
+    branch_id,
+    notes,
+    created_by
+)
+SELECT
+    si.customer_id,
+    si.id,
+    'PAY-' ||
+    to_char(clock_timestamp() AT TIME ZONE 'Africa/Cairo', 'YYYYMMDD-HH24MISSMS') ||
+    '-' ||
+    lpad((floor(random() * 1000))::int::text, 3, '0'),
+    (clock_timestamp() AT TIME ZONE 'Africa/Cairo')::date,
+    COALESCE(NULLIF({{ InputPaymentAmount.text }}, '')::numeric, 0),
+    COALESCE(NULLIF({{ SelectPaymentMethod.selectedOptionValue }}, ''), 'cash'),
+    NULLIF({{ SelectTreasury.selectedOptionValue }}, '')::uuid,
+    si.branch_id,
+    NULL,
+    require_app_user_id_by_email({{ appsmith.user.email }})
+FROM sales_invoices si
+WHERE si.id = {{ appsmith.store.currentSalesInvoiceId }}::uuid
+  AND si.status IN ('draft', 'pending_approval')
+  AND COALESCE(NULLIF({{ InputPaymentAmount.text }}, '')::numeric, 0) > 0
+RETURNING *;

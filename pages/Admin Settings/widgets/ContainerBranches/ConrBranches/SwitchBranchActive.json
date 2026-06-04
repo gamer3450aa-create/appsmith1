@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 19,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{ TableBranches.selectedRow?.is_active ?? true }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "s1o1mav3px",
+  "label": "Branch Active",
+  "labelPosition": "Left",
+  "leftColumn": 43,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 41,
+  "mobileLeftColumn": 4,
+  "mobileRightColumn": 16,
+  "mobileTopRow": 37,
+  "needsErrorInfo": false,
+  "originalBottomRow": 37,
+  "originalTopRow": 15,
+  "parentColumnSpace": 4.328125,
+  "parentId": "ofqws5t0fv",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "topRow": 15,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "hk68bcuno7",
+  "widgetName": "SwitchBranchActive"
+}

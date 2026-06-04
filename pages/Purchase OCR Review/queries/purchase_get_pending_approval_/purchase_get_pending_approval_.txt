@@ -1,0 +1,13 @@
+SELECT *
+FROM vw_purchase_invoices_summary
+WHERE status = 'pending_approval'
+  AND (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectSupplier.selectedOptionValue }}, '') IS NULL
+      OR supplier_id = NULLIF({{ SelectSupplier.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY invoice_date DESC, invoice_number DESC
+LIMIT 200;

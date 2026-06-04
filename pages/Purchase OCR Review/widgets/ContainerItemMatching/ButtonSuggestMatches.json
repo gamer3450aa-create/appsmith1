@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 19,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TableReviewQueue.selectedRow?.extraction_result_id }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "uxtme9s9qn",
+  "leftColumn": 50,
+  "minWidth": 120,
+  "mobileBottomRow": 147,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 143,
+  "needsErrorInfo": false,
+  "onClick": "{{purchase_ocr_suggest_product_m.run().then(() => {\n  purchase_ocr_get_item_matches.run();\n});}}",
+  "originalBottomRow": 147,
+  "originalTopRow": 143,
+  "parentColumnSpace": 4.328125,
+  "parentId": "0c1j511t2n",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Suggest Matches",
+  "topRow": 15,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "j6mq1tkwb7",
+  "widgetName": "ButtonSuggestMatches"
+}

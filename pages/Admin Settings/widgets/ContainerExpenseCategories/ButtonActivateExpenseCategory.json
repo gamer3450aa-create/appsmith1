@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 24,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TableExpenseCategories.selectedRow?.id || String(TableExpenseCategories.selectedRow?.is_active) === \"true\" }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "v0l936ez0s",
+  "leftColumn": 32,
+  "minWidth": 120,
+  "mobileBottomRow": 616,
+  "mobileLeftColumn": 32,
+  "mobileRightColumn": 48,
+  "mobileTopRow": 612,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_activate_expense_categor.run().then(() => {\n  admin_list_expense_categories.run();\n});}}",
+  "originalBottomRow": 25,
+  "originalTopRow": 21,
+  "parentColumnSpace": 4.328125,
+  "parentId": "qnzmpvqpmf",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 48,
+  "text": "Activate Expense Category",
+  "topRow": 20,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "egz0zwtqpd",
+  "widgetName": "ButtonActivateExpenseCategory"
+}

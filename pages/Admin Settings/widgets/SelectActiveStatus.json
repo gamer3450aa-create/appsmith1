@@ -1,0 +1,64 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "defaultOptionValue": "\"\"",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "x204k4v473",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Status",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 21,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 7,
+  "mobileLeftColumn": 21,
+  "mobileRightColumn": 41,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onOptionChange": "{{admin_list_business_profiles.run();\nadmin_list_branches.run();\nadmin_list_warehouses.run();\nadmin_list_users.run();\nadmin_list_treasuries.run();\nadmin_list_expense_categories.run();\nadmin_list_product_categories.run();\nadmin_list_units.run();\nadmin_list_car_brands.run();\nadmin_list_car_models.run()}}",
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 4.328125,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 41,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  { \"label\": \"All\", \"value\": \"\" },\n  { \"label\": \"Active\", \"value\": \"true\" },\n  { \"label\": \"Inactive\", \"value\": \"false\" }\n]",
+  "topRow": 0,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "bngb2fj23k",
+  "widgetName": "SelectActiveStatus"
+}

@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 11,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TablePurchaseInvoices.selectedRow?.purchase_invoice_id || !SelectInvoiceTemplate.selectedOptionValue }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "uxtme9s9qn",
+  "leftColumn": 25.6,
+  "minWidth": 120,
+  "mobileBottomRow": 307,
+  "mobileLeftColumn": 16,
+  "mobileRightColumn": 32,
+  "mobileTopRow": 303,
+  "needsErrorInfo": false,
+  "onClick": "{{purchase_log_invoice_print.run()}}",
+  "originalBottomRow": 307,
+  "originalTopRow": 303,
+  "parentColumnSpace": 2.705078125,
+  "parentId": "fhh8jhqix9",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 51.2,
+  "text": "Log PurchasePrint",
+  "topRow": 7,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "wzo5qctrvr",
+  "widgetName": "ButtonLogPurchasePrint"
+}

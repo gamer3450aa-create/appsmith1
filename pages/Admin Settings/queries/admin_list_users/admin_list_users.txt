@@ -1,0 +1,26 @@
+SELECT
+    u.id,
+    u.full_name,
+    u.email,
+    u.phone,
+    u.branch_id,
+    b.name AS branch_name,
+    u.role_id,
+    r.name AS role_name,
+    u.is_active,
+    u.last_login_at,
+    u.created_at,
+    u.updated_at
+FROM users u
+JOIN roles r ON r.id = u.role_id
+LEFT JOIN branches b ON b.id = u.branch_id
+WHERE (
+      NULLIF({{ InputUserSearch.text }}, '') IS NULL
+      OR u.full_name ILIKE '%' || {{ InputUserSearch.text }} || '%'
+      OR u.email ILIKE '%' || {{ InputUserSearch.text }} || '%'
+  )
+  AND (
+      NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '') IS NULL
+      OR u.is_active = NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY u.full_name;

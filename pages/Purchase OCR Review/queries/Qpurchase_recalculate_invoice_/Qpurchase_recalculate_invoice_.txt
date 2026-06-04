@@ -1,0 +1,3 @@
+SELECT recalculate_purchase_invoice_totals(
+    {{ TablePurchaseInvoices.selectedRow.purchase_invoice_id }}::uuid
+);

@@ -1,0 +1,16 @@
+SELECT
+    branch_id,
+    branch_name,
+    payment_method,
+    customer_collections_total,
+    supplier_payments_total,
+    expenses_total,
+    cash_in_total,
+    cash_out_total,
+    net_total
+FROM vw_dashboard_payment_methods_today
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY branch_name, payment_method;

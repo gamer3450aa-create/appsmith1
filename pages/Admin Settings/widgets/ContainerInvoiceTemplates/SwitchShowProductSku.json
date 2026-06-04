@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 29,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{ TableInvoiceTemplates.selectedRow?.show_product_sku ?? true }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "gvicx0okv2",
+  "label": "Show Product Sku",
+  "labelPosition": "Left",
+  "leftColumn": 29,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 859,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 13,
+  "mobileTopRow": 855,
+  "needsErrorInfo": false,
+  "originalBottomRow": 41,
+  "originalTopRow": 31,
+  "parentColumnSpace": 4.328125,
+  "parentId": "691khzqvjr",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 55,
+  "topRow": 25,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "pyjlw0oj5q",
+  "widgetName": "SwitchShowProductSku"
+}

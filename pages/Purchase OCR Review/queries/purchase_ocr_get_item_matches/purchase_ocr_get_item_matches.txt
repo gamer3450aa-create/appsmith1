@@ -1,0 +1,4 @@
+SELECT *
+FROM vw_purchase_ocr_item_matching_review
+WHERE extraction_result_id = {{ TableReviewQueue.selectedRow.extraction_result_id }}::uuid
+ORDER BY line_number;

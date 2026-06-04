@@ -1,0 +1,61 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 14,
+  "boxShadow": "none",
+  "closeOnSelection": true,
+  "dateFormat": "YYYY-MM-DD HH:mm",
+  "datePickerType": "DATE_PICKER",
+  "defaultDate": "2026-05-30T13:48:58.441Z",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [
+    {
+      "key": "onDateSelected"
+    }
+  ],
+  "firstDayOfWeek": 0,
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "0zzmmgzaqr",
+  "label": "Picker Shift Date",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDate": "2121-12-31T18:29:00.000Z",
+  "maxDynamicHeight": 9000,
+  "minDate": "1920-12-31T18:30:00.000Z",
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 14,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 7,
+  "needsErrorInfo": false,
+  "onDateSelected": "{{shift_list_today_shifts.run();\nshift_get_daily_closing_summar.run();\nshift_get_daily_payment_method.run();\nshift_get_daily_expenses.run();\nshift_get_daily_cash_transacti.run()}}",
+  "parentColumnSpace": 2.3845977783203125,
+  "parentId": "beqarrv7kl",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 29.090909090909093,
+  "shortcuts": false,
+  "timePrecision": "minute",
+  "topRow": 7,
+  "type": "DATE_PICKER_WIDGET2",
+  "version": 2,
+  "widgetId": "r6kfyx69sp",
+  "widgetName": "DatePickerShiftDate"
+}

@@ -1,0 +1,23 @@
+SELECT *
+FROM vw_product_catalog_management
+WHERE (
+      NULLIF({{ TableProducts.searchText }}, '') IS NULL
+      OR sku ILIKE '%' || {{ TableProducts.searchText }} || '%'
+      OR product_name ILIKE '%' || {{ TableProducts.searchText }} || '%'
+      OR barcode ILIKE '%' || {{ TableProducts.searchText }} || '%'
+      OR manufacturer_part_number ILIKE '%' || {{ TableProducts.searchText }} || '%'
+  )
+  AND (
+      NULLIF({{ SelectCategory.selectedOptionValue }}, '') IS NULL
+      OR category_id = NULLIF({{ SelectCategory.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectCarBrand.selectedOptionValue }}, '') IS NULL
+      OR car_brand_id = NULLIF({{ SelectCarBrand.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectProductActive.selectedOptionValue }}, '') IS NULL
+      OR is_active = NULLIF({{ SelectProductActive.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY product_name
+LIMIT 200;

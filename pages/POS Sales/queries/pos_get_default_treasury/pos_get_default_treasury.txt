@@ -1,0 +1,16 @@
+WITH cfg AS (
+    SELECT
+        (SELECT NULLIF(setting_value, '')::uuid FROM system_settings WHERE setting_key = 'default_branch_id') AS branch_id,
+        (SELECT NULLIF(setting_value, '')::uuid FROM system_settings WHERE setting_key = 'default_treasury_id') AS treasury_id
+)
+SELECT t.id AS value, t.name AS label
+FROM treasuries t
+WHERE t.is_active = true
+  AND t.branch_id = COALESCE(
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid,
+      (SELECT branch_id FROM cfg)
+  )
+ORDER BY
+    CASE WHEN t.id = (SELECT treasury_id FROM cfg) THEN 0 ELSE 1 END,
+    t.created_at ASC
+LIMIT 1;

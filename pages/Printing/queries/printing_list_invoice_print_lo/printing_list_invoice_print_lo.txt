@@ -1,0 +1,28 @@
+SELECT
+    ipl.id AS print_log_id,
+    ipl.invoice_type,
+    ipl.invoice_id,
+    ipl.template_id,
+    it.template_code,
+    it.template_name,
+    it.paper_size,
+    it.language,
+    ipl.printed_by,
+    u.full_name AS printed_by_name,
+    u.email AS printed_by_email,
+    ipl.printed_at,
+    ipl.print_channel,
+    ipl.notes
+FROM invoice_print_logs ipl
+LEFT JOIN invoice_templates it ON it.id = ipl.template_id
+LEFT JOIN users u ON u.id = ipl.printed_by
+WHERE (
+      NULLIF({{ SelectInvoiceType.selectedOptionValue }}, '') IS NULL
+      OR ipl.invoice_type = NULLIF({{ SelectInvoiceType.selectedOptionValue }}, '')
+  )
+  AND (
+      NULLIF({{ InputInvoiceId.text }}, '') IS NULL
+      OR ipl.invoice_id = NULLIF({{ InputInvoiceId.text }}, '')::uuid
+  )
+ORDER BY ipl.printed_at DESC
+LIMIT 200;

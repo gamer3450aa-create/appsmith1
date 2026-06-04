@@ -1,0 +1,6 @@
+SELECT
+    get_app_user_id_by_email({{ appsmith.user.email }}) AS mapped_user_id,
+    CASE
+        WHEN get_app_user_id_by_email({{ appsmith.user.email }}) IS NULL THEN false
+        ELSE true
+    END AS is_mapped;

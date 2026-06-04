@@ -1,0 +1,25 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+UPDATE business_profiles bp
+SET branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid,
+    business_name = {{ InputBusinessName.text }},
+    legal_name = NULLIF({{ InputLegalName.text }}, ''),
+    tax_number = NULLIF({{ InputTaxNumber.text }}, ''),
+    commercial_register = NULLIF({{ InputCommercialRegister.text }}, ''),
+    phone = NULLIF({{ InputPhone.text }}, ''),
+    whatsapp = NULLIF({{ InputWhatsapp.text }}, ''),
+    email = NULLIF({{ InputEmail.text }}, ''),
+    website = NULLIF({{ InputAreaAddress.text }}, ''),
+    address = NULLIF({{ InputAreaAddress.text }}, ''),
+    city = NULLIF({{ InputCity.text }}, ''),
+    country = COALESCE(NULLIF({{ InputCountry.text }}, ''), 'Egypt'),
+    logo_url = NULLIF({{ InputLogoUrl.text }}, ''),
+    default_currency = COALESCE(NULLIF({{ TextAreaReturnPolicy.text }}, ''), 'EGP'),
+    invoice_footer = NULLIF({{ TextAreaInvoiceFooter.text }}, ''),
+    return_policy = NULLIF({{ TextAreaReturnPolicy.text }}, ''),
+    is_default = COALESCE({{ SwitchDefaultProfile.isSwitchedOn }}, false),
+    is_active = COALESCE({{ SwitchActiveProfile.isSwitchedOn }}, true)
+FROM current_operator
+WHERE bp.id = {{ TableBusinessProfiles.selectedRow.id }}::uuid
+RETURNING bp.*;

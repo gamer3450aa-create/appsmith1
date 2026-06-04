@@ -1,0 +1,39 @@
+WITH cfg AS (
+    SELECT
+        (SELECT NULLIF(setting_value, '')::uuid FROM system_settings WHERE setting_key = 'default_branch_id') AS default_branch_id,
+        (SELECT NULLIF(setting_value, '')::uuid FROM system_settings WHERE setting_key = 'default_warehouse_id') AS default_warehouse_id
+),
+f AS (
+    SELECT
+        COALESCE(NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid, (SELECT default_branch_id FROM cfg)) AS branch_id,
+        COALESCE(NULLIF({{ SelectWarehouse.selectedOptionValue }}, '')::uuid, (SELECT default_warehouse_id FROM cfg)) AS warehouse_id,
+        NULLIF({{ InputProductSearch.text }}, '') AS search_text
+)
+SELECT
+    p.product_id,
+    p.sku,
+    p.product_name,
+    p.category_name,
+    p.car_brand_name,
+    p.car_model_name,
+    p.barcode,
+    p.sale_price,
+    p.warehouse_id,
+    p.warehouse_name,
+    p.quantity_on_hand,
+    p.reserved_quantity,
+    p.available_quantity,
+    p.min_stock_quantity,
+    p.is_low_stock
+FROM vw_pos_products_for_sale p
+CROSS JOIN f
+WHERE p.branch_id = f.branch_id
+  AND p.warehouse_id = f.warehouse_id
+  AND (
+      f.search_text IS NULL
+      OR p.sku ILIKE '%' || f.search_text || '%'
+      OR p.product_name ILIKE '%' || f.search_text || '%'
+      OR COALESCE(p.barcode, '') ILIKE '%' || f.search_text || '%'
+  )
+ORDER BY p.product_name
+LIMIT 100;

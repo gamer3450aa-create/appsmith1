@@ -1,0 +1,8 @@
+SELECT id AS value, name AS label, branch_id
+FROM warehouses
+WHERE is_active = true
+  AND (
+    NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+    OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY name;

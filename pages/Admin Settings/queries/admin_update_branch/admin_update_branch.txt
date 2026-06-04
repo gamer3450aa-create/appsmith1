@@ -1,0 +1,14 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+UPDATE branches b
+SET code = {{ InputBranchCode.text }},
+    name = {{ InputBranchName.text }},
+    legal_name = NULLIF({{ InputBranchLegalName.text }}, ''),
+    phone = NULLIF({{ InputBranchPhone.text }}, ''),
+    email = NULLIF({{ InputBranchEmail.text }}, ''),
+    address = NULLIF({{ TextAreaBranchAddress.text }}, ''),
+    is_active = COALESCE({{ SwitchBranchActive.isSwitchedOn }}, true)
+FROM current_operator
+WHERE b.id = {{ TableBranches.selectedRow.id }}::uuid
+RETURNING b.*;

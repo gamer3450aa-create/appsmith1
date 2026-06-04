@@ -1,0 +1,11 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+UPDATE roles r
+SET code = {{ InputRoleCode.text }},
+    name = {{ InputRoleName.text }},
+    description = NULLIF({{ TextAreaRoleDescription.text }}, ''),
+    is_system = COALESCE({{ SwitchRoleSystem.isSwitchedOn }}, false)
+FROM current_operator
+WHERE r.id = {{ TableRoles.selectedRow.id }}::uuid
+RETURNING r.*;

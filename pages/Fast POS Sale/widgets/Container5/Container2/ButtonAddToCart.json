@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 16,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "buttonColor": "#10b981",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "add",
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{\n  !appsmith.store.currentSalesInvoiceId\n  || !TableProductResults.selectedRow\n  || Number(InputCartQuantity.text || 0) <= 0\n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "zippv9f5w8",
+  "leftColumn": 41,
+  "minWidth": 120,
+  "mobileBottomRow": 52,
+  "mobileLeftColumn": 6,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 48,
+  "needsErrorInfo": false,
+  "onClick": "{{pos_add_sales_invoice_item.run().then(() => {\n  pos_get_sales_invoice_items.run();\n  pos_get_sales_invoice_draft.run();\n  pos_search_products_for_sale.run();\n  resetWidget(\"InputCartQuantity\", true);\n});}}",
+  "originalBottomRow": 52,
+  "originalTopRow": 48,
+  "parentColumnSpace": 6.046875,
+  "parentId": "edc4nuwwuj",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 58,
+  "text": "Add Item",
+  "topRow": 12,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "xkohhlwib7",
+  "widgetName": "ButtonAddToCart"
+}

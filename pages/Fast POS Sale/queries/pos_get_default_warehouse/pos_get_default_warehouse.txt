@@ -1,0 +1,23 @@
+WITH cfg AS (
+    SELECT
+        (SELECT NULLIF(setting_value, '')::uuid FROM system_settings WHERE setting_key = 'default_branch_id') AS default_branch_id,
+        (SELECT NULLIF(setting_value, '')::uuid FROM system_settings WHERE setting_key = 'default_warehouse_id') AS default_warehouse_id
+),
+f AS (
+    SELECT COALESCE(
+        NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid,
+        (SELECT default_branch_id FROM cfg)
+    ) AS branch_id
+)
+SELECT
+    w.id AS value,
+    w.name AS label
+FROM warehouses w
+CROSS JOIN cfg
+CROSS JOIN f
+WHERE w.is_active = true
+  AND w.branch_id = f.branch_id
+ORDER BY
+    CASE WHEN w.id = cfg.default_warehouse_id THEN 0 ELSE 1 END,
+    w.created_at ASC
+LIMIT 1;

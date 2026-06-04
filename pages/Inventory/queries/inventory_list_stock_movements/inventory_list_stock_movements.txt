@@ -1,0 +1,27 @@
+SELECT *
+FROM vw_stock_movements_detailed
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectWarehouse.selectedOptionValue }}, '') IS NULL
+      OR warehouse_id = NULLIF({{ SelectWarehouse.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectProduct.selectedOptionValue }}, '') IS NULL
+      OR product_id = NULLIF({{ SelectProduct.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectMovementType.selectedOptionValue }}, '') IS NULL
+      OR movement_type = NULLIF({{ SelectMovementType.selectedOptionValue }}, '')
+  )
+  AND (
+      NULLIF({{ DateMovementFrom.selectedDate }}, '') IS NULL
+      OR movement_date::date >= NULLIF({{ DateMovementFrom.selectedDate }}, '')::date
+  )
+  AND (
+      NULLIF({{ DateMovementTo.selectedDate }}, '') IS NULL
+      OR movement_date::date <= NULLIF({{ DateMovementTo.selectedDate }}, '')::date
+  )
+ORDER BY movement_date DESC
+LIMIT 300;

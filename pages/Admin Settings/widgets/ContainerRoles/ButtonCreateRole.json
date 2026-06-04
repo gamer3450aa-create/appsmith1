@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 19,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !InputRoleCode.text || !InputRoleName.text }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ua9mdyb38v",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 55,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 16,
+  "mobileTopRow": 51,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_create_role.run().then(() => {\n  admin_list_roles.run();\n});}}",
+  "originalBottomRow": 24,
+  "originalTopRow": 20,
+  "parentColumnSpace": 3.043212890625,
+  "parentId": "kacytf7s25",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 22.755555555555556,
+  "text": "Create Role",
+  "topRow": 15,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "uvbta4dg80",
+  "widgetName": "ButtonCreateRole"
+}

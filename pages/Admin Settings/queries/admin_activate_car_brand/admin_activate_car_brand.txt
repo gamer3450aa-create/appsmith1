@@ -1,0 +1,8 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+UPDATE car_brands cb
+SET is_active = true
+FROM current_operator
+WHERE cb.id = {{ TableCarBrands.selectedRow.id }}::uuid
+RETURNING cb.*;

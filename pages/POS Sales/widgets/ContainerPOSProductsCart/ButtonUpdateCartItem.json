@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 25,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TableCart.selectedRow?.sales_invoice_item_id }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "lxym9v433f",
+  "leftColumn": 15,
+  "minWidth": 120,
+  "mobileBottomRow": 95,
+  "mobileLeftColumn": 15,
+  "mobileRightColumn": 31,
+  "mobileTopRow": 91,
+  "needsErrorInfo": false,
+  "onClick": "{{pos_update_sales_invoice_item.run().then(() => {\n  pos_recalculate_sales_invoice_.run();\n  pos_get_sales_invoice_draft.run();\n  pos_get_sales_invoice_items.run();\n});}}",
+  "originalBottomRow": 95,
+  "originalTopRow": 91,
+  "parentColumnSpace": 3.468505859375,
+  "parentId": "ghz25yagtd",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 31,
+  "text": "Update Cart Item",
+  "topRow": 21,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "lgltq4p3w8",
+  "widgetName": "ButtonUpdateCartItem"
+}

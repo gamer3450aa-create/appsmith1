@@ -1,0 +1,9 @@
+SELECT *
+FROM vw_purchase_invoices_summary
+WHERE status = 'approved'
+  AND invoice_date = CURRENT_DATE
+  AND (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY invoice_number;

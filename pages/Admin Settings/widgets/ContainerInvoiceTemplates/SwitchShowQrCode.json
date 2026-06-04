@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 33,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{ TableInvoiceTemplates.selectedRow?.show_qr_code ?? false }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "gvicx0okv2",
+  "label": "Show QrCode",
+  "labelPosition": "Left",
+  "leftColumn": 30,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 859,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 13,
+  "mobileTopRow": 855,
+  "needsErrorInfo": false,
+  "originalBottomRow": 51,
+  "originalTopRow": 41,
+  "parentColumnSpace": 4.328125,
+  "parentId": "691khzqvjr",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 56,
+  "topRow": 29,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "pmzziep4pc",
+  "widgetName": "SwitchShowQrCode"
+}

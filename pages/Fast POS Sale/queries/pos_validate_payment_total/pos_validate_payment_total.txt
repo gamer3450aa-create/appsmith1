@@ -1,0 +1,15 @@
+SELECT
+    si.sales_invoice_id,
+    si.invoice_number,
+    si.total_amount,
+    si.paid_amount,
+    si.remaining_amount,
+    COALESCE(NULLIF({{ InputPaymentAmount.text }}, '')::numeric, 0) AS proposed_payment_amount,
+    (COALESCE(NULLIF({{ InputPaymentAmount.text }}, '')::numeric, 0) > 0) AS amount_is_positive,
+    (COALESCE(NULLIF({{ InputPaymentAmount.text }}, '')::numeric, 0) <= si.remaining_amount) AS payment_within_remaining,
+    (
+        COALESCE(NULLIF({{ InputPaymentAmount.text }}, '')::numeric, 0) > 0
+        AND COALESCE(NULLIF({{ InputPaymentAmount.text }}, '')::numeric, 0) <= si.remaining_amount
+    ) AS can_accept_payment
+FROM vw_sales_invoices_summary si
+WHERE si.sales_invoice_id = NULLIF({{ appsmith.store.currentSalesInvoiceId }}, '')::uuid;

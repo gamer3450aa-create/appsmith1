@@ -1,0 +1,12 @@
+SELECT *
+FROM vw_cash_transactions_by_method_daily
+WHERE transaction_date = CURRENT_DATE
+  AND (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectTreasury.selectedOptionValue }}, '') IS NULL
+      OR treasury_id = NULLIF({{ SelectTreasury.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY branch_name, treasury_name, payment_method;

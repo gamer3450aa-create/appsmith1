@@ -1,0 +1,10 @@
+SELECT cancel_expense(
+    {{ TableExpenses.selectedRow.expense_id }}::uuid,
+    require_app_user_id_by_email({{ appsmith.user.email }})
+);
+
+-- Query: finance_get_expenses_by_category
+-- Purpose: Show approved expense totals grouped by category.
+SELECT *
+FROM vw_expenses_by_category
+ORDER BY total_expenses DESC, category_name;

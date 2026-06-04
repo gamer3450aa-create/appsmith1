@@ -1,0 +1,10 @@
+SELECT
+    c.*,
+    parent.name AS parent_name
+FROM categories c
+LEFT JOIN categories parent ON parent.id = c.parent_id
+WHERE (
+      NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '') IS NULL
+      OR c.is_active = NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY c.name;

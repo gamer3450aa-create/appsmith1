@@ -1,0 +1,8 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+UPDATE invoice_templates it
+SET is_active = true
+FROM current_operator
+WHERE it.id = {{ TableInvoiceTemplates.selectedRow.id }}::uuid
+RETURNING it.*;

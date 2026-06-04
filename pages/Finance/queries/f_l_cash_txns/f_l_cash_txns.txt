@@ -1,0 +1,28 @@
+SELECT *
+FROM vw_cash_transactions_detailed
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectTreasury.selectedOptionValue }}, '') IS NULL
+      OR treasury_id = NULLIF({{ SelectTreasury.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectSourceType.selectedOptionValue }}, '') IS NULL
+      OR source_type = {{ SelectSourceType.selectedOptionValue }}
+  )
+  AND (
+      NULLIF({{ SelectPaymentMethod.selectedOptionValue }}, '') IS NULL
+      OR payment_method = {{ SelectPaymentMethod.selectedOptionValue }}
+  )
+  AND (
+      NULLIF({{ DateCashFrom.selectedDate }}, '') IS NULL
+      OR transaction_date::date >= NULLIF({{ DateCashFrom.selectedDate }}, '')::date
+  )
+  AND (
+      NULLIF({{ DateCashTo.selectedDate }}, '') IS NULL
+      OR transaction_date::date <= NULLIF({{ DateCashTo.selectedDate }}, '')::date
+  )
+ORDER BY transaction_date DESC
+LIMIT 300;

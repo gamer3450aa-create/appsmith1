@@ -1,0 +1,1 @@
+SELECT validate_admin_deactivation('role', {{ TableRoles.selectedRow.id }}::uuid) AS role_deactivation_note;

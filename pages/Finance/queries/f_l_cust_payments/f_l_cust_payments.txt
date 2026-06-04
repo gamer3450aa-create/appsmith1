@@ -1,0 +1,20 @@
+SELECT cp.*,
+       c.name AS customer_name,
+       si.invoice_number AS sales_invoice_number,
+       t.name AS treasury_name,
+       b.name AS branch_name
+FROM customer_payments cp
+LEFT JOIN customers c ON c.id = cp.customer_id
+LEFT JOIN sales_invoices si ON si.id = cp.sales_invoice_id
+LEFT JOIN treasuries t ON t.id = cp.treasury_id
+LEFT JOIN branches b ON b.id = cp.branch_id
+WHERE (
+      NULLIF({{ SelectCustomer.selectedOptionValue }}, '') IS NULL
+      OR cp.customer_id = NULLIF({{ SelectCustomer.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectSalesInvoice.selectedOptionValue }}, '') IS NULL
+      OR cp.sales_invoice_id = NULLIF({{ SelectSalesInvoice.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY cp.payment_date DESC, cp.payment_number DESC
+LIMIT 200;

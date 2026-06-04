@@ -1,0 +1,23 @@
+SELECT
+    branch_id,
+    warehouse_id,
+    warehouse_name,
+    product_id,
+    sku,
+    product_name,
+    category_name,
+    quantity_on_hand,
+    reserved_quantity,
+    available_quantity,
+    min_stock_quantity,
+    average_cost,
+    inventory_cost_value
+FROM vw_inventory_balances
+WHERE is_low_stock = true
+  AND product_is_active = true
+  AND (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY product_name, warehouse_name
+LIMIT 100;

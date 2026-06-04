@@ -1,0 +1,4 @@
+SELECT collection_row
+FROM jsonb_array_elements(
+    get_shift_live_payload({{ TableShifts.selectedRow.shift_id }}::uuid) -> 'customer_collections'
+) AS collection_row;

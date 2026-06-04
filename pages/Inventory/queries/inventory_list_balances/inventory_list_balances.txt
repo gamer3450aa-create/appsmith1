@@ -1,0 +1,19 @@
+SELECT *
+FROM vw_inventory_balances
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectWarehouse.selectedOptionValue }}, '') IS NULL
+      OR warehouse_id = NULLIF({{ SelectWarehouse.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectCategory.selectedOptionValue }}, '') IS NULL
+      OR category_id = NULLIF({{ SelectCategory.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ TableInventory.searchText }}, '') IS NULL
+      OR sku ILIKE '%' || {{ TableInventory.searchText }} || '%'      OR product_name ILIKE '%' || {{ TableInventory.searchText }} || '%'
+  )
+ORDER BY product_name, warehouse_name
+LIMIT 300;

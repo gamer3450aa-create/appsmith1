@@ -1,0 +1,11 @@
+SELECT *
+FROM vw_inventory_low_stock
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectWarehouse.selectedOptionValue }}, '') IS NULL
+      OR warehouse_id = NULLIF({{ SelectWarehouse.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY shortage_quantity DESC, product_name
+LIMIT 300;

@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TableProductCategories.selectedRow?.id || String(TableProductCategories.selectedRow?.is_active) === \"false\" }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "v0l936ez0s",
+  "leftColumn": 48,
+  "minWidth": 120,
+  "mobileBottomRow": 555,
+  "mobileLeftColumn": 48,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 551,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_deactivate_product_categ.run().then(() => {\n  admin_list_product_categories.run();\n});}}",
+  "originalBottomRow": 555,
+  "originalTopRow": 551,
+  "parentColumnSpace": 4.328125,
+  "parentId": "tzmz953l9g",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Deactivate ProductCategory",
+  "topRow": 23,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "sq8w8be8xu",
+  "widgetName": "ButtonDeactivateProductCategor"
+}

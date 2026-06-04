@@ -1,0 +1,24 @@
+SELECT
+    p.id AS product_id,
+    p.sku,
+    p.name AS product_name,
+    SUM(ib.quantity_on_hand) AS quantity_on_hand,
+    COALESCE(
+        SUM(
+            ib.quantity_on_hand *
+            COALESCE(NULLIF(ib.average_cost, 0), p.default_purchase_price, 0)
+        ),
+        0
+    )::numeric(14,2) AS stock_value
+FROM inventory_balances ib
+JOIN products p ON p.id = ib.product_id
+JOIN warehouses w ON w.id = ib.warehouse_id
+WHERE p.is_active = true
+  AND ib.quantity_on_hand > 0
+  AND (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR w.branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+GROUP BY p.id, p.sku, p.name
+ORDER BY stock_value DESC
+LIMIT 10;

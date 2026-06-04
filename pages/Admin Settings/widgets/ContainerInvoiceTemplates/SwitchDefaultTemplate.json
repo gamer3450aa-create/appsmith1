@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 41,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{ TableInvoiceTemplates.selectedRow?.is_default ?? false }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "gvicx0okv2",
+  "label": "Default Template",
+  "labelPosition": "Left",
+  "leftColumn": 31,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 859,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 13,
+  "mobileTopRow": 855,
+  "needsErrorInfo": false,
+  "originalBottomRow": 69,
+  "originalTopRow": 59,
+  "parentColumnSpace": 4.328125,
+  "parentId": "691khzqvjr",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 57,
+  "topRow": 37,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "yma4syp6vh",
+  "widgetName": "SwitchDefaultTemplate"
+}

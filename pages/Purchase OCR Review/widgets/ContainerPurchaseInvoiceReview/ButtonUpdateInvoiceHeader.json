@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 25,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TablePurchaseInvoices.selectedRow?.purchase_invoice_id || !SelectSupplier.selectedOptionValue || !SelectBranch.selectedOptionValue || !SelectWarehouse.selectedOptionValue }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "uxtme9s9qn",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 206,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 16,
+  "mobileTopRow": 202,
+  "needsErrorInfo": false,
+  "onClick": "{{purchase_update_invoice_header.run().then(() => {\n  purchase_get_pending_approval_.run();\n  purchase_get_invoice_review_he.run();\n});}}",
+  "originalBottomRow": 206,
+  "originalTopRow": 202,
+  "parentColumnSpace": 4.328125,
+  "parentId": "ejfmybbtvh",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 16,
+  "text": "Update InvoiceHeader",
+  "topRow": 21,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "mj3e2thov5",
+  "widgetName": "ButtonUpdateInvoiceHeader"
+}

@@ -1,0 +1,7 @@
+SELECT open_shift(
+    {{ SelectBranch.selectedOptionValue }}::uuid,
+    {{ SelectTreasury.selectedOptionValue }}::uuid,
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    {{ InputShiftNumber.text }},
+    NULLIF({{ TextAreaShiftNotes.text }}, '')
+) AS shift_id;

@@ -1,0 +1,5 @@
+SELECT *
+FROM vw_stock_movements_detailed
+WHERE product_id = {{ TableInventory.selectedRow.product_id }}::uuid
+ORDER BY movement_date DESC
+LIMIT 100;

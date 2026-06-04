@@ -1,0 +1,15 @@
+SELECT
+    bp.*,
+    b.name AS branch_name
+FROM business_profiles bp
+LEFT JOIN branches b ON b.id = bp.branch_id
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR bp.branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+      OR ({{ SwitchIncludeGlobalProfiles.isSwitchedOn }} = true AND bp.branch_id IS NULL)
+  )
+  AND (
+      NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '') IS NULL
+      OR bp.is_active = NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY bp.branch_id NULLS FIRST, bp.is_default DESC, bp.business_name;

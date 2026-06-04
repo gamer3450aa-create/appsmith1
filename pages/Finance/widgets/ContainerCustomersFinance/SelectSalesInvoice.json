@@ -1,0 +1,64 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "defaultOptionValue": "\"\"",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "55f4ii0juk",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Sales Invoice",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 24,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 293,
+  "mobileLeftColumn": 24,
+  "mobileRightColumn": 44,
+  "mobileTopRow": 286,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 293,
+  "originalTopRow": 286,
+  "parentColumnSpace": 3.468505859375,
+  "parentId": "xq3w7sa5du",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 44,
+  "serverSideFiltering": false,
+  "sourceData": "{{ [{ label: \"No Invoice\", value: \"\" }].concat(Array.isArray(f_l_cust_open_inv.data) ? f_l_cust_open_inv.data.map(i => ({ label: i.invoice_number || \"\", value: i.sales_invoice_id || i.invoice_id || i.id || \"\" })) : []) }}",
+  "topRow": 0,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "jv81jm3ptf",
+  "widgetName": "SelectSalesInvoice"
+}

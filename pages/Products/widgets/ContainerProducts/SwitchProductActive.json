@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 47,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{ TableProducts.selectedRow?.is_active ?? true }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "g5v329qwom",
+  "label": "Product Active",
+  "labelPosition": "Left",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 46,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 12,
+  "mobileTopRow": 42,
+  "needsErrorInfo": false,
+  "originalBottomRow": 47,
+  "originalTopRow": 42,
+  "parentColumnSpace": 3.468505859375,
+  "parentId": "1j5yft4h9l",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 40,
+  "topRow": 42,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "bqpnvpst7z",
+  "widgetName": "SwitchProductActive"
+}

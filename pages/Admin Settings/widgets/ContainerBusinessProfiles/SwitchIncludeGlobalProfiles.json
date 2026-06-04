@@ -1,0 +1,52 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 47,
+  "boxShadow": "none",
+  "defaultSwitchState": "true",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onChange"
+    }
+  ],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "gvicx0okv2",
+  "label": "Include Global Profiles",
+  "labelPosition": "Left",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 792,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 12,
+  "mobileTopRow": 788,
+  "needsErrorInfo": false,
+  "onChange": "{{admin_list_business_profiles.run()}}",
+  "originalBottomRow": 50,
+  "originalTopRow": 45,
+  "parentColumnSpace": 4.328125,
+  "parentId": "4ccdupme84",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 41,
+  "topRow": 43,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "b16vdns3mp",
+  "widgetName": "SwitchIncludeGlobalProfiles"
+}

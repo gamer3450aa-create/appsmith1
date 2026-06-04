@@ -1,0 +1,12 @@
+SELECT id AS value, name AS label
+FROM treasuries
+WHERE is_active = true
+  AND branch_id = COALESCE(
+      NULLIF({{ SelectDefaultBranch.selectedOptionValue }}, '')::uuid,
+      (
+        SELECT NULLIF(setting_value, '')::uuid
+        FROM system_settings
+        WHERE setting_key = 'default_branch_id'
+      )
+  )
+ORDER BY name;

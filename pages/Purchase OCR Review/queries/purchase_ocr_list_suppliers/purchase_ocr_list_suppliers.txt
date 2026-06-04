@@ -1,0 +1,4 @@
+SELECT id AS value, code || ' - ' || name AS label
+FROM suppliers
+WHERE is_active = true
+ORDER BY name;

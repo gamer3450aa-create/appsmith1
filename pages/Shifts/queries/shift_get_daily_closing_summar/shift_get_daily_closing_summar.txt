@@ -1,0 +1,4 @@
+SELECT get_daily_closing_payload(
+    NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid,
+    COALESCE(NULLIF({{ DatePickerShiftDate.selectedDate }}, '')::date, CURRENT_DATE)
+) AS daily_closing_payload;

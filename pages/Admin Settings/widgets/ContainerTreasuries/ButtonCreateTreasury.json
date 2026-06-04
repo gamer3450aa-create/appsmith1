@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 26,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !SelectBranch.selectedOptionValue || !InputTreasuryCode.text || !InputTreasuryName.text }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "38owd5jpy5",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 56,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 16,
+  "mobileTopRow": 52,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_create_treasury.run().then(() => {\n  admin_list_treasuries.run();\n});}}",
+  "originalBottomRow": 32,
+  "originalTopRow": 28,
+  "parentColumnSpace": 4.328125,
+  "parentId": "vxtc97g0gh",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 16,
+  "text": "Create Treasury",
+  "topRow": 22,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "bt82ye617h",
+  "widgetName": "ButtonCreateTreasury"
+}

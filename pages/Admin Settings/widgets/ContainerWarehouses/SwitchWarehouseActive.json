@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 16,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{ TableWarehouses.selectedRow?.is_active ?? true }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "66kuaowcyb",
+  "label": "Warehouse Active",
+  "labelPosition": "Left",
+  "leftColumn": 33,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 45,
+  "mobileLeftColumn": 16,
+  "mobileRightColumn": 28,
+  "mobileTopRow": 41,
+  "needsErrorInfo": false,
+  "originalBottomRow": 23,
+  "originalTopRow": 15,
+  "parentColumnSpace": 4.328125,
+  "parentId": "gjsilxga84",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "topRow": 12,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "yrb8tnqsub",
+  "widgetName": "SwitchWarehouseActive"
+}

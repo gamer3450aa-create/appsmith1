@@ -1,0 +1,19 @@
+SELECT
+    it.*,
+    b.name AS branch_name
+FROM invoice_templates it
+LEFT JOIN branches b ON b.id = it.branch_id
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR it.branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+      OR ({{ SwitchIncludeGlobalTemplates.isSwitchedOn }} = true AND it.branch_id IS NULL)
+  )
+  AND (
+      NULLIF({{ SelectInvoiceType.selectedOptionValue }}, '') IS NULL
+      OR it.invoice_type = {{ SelectInvoiceType.selectedOptionValue }}
+  )
+  AND (
+      NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '') IS NULL
+      OR it.is_active = NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY it.invoice_type, it.paper_size, it.branch_id NULLS FIRST, it.template_name;

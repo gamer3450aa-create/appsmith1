@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 18,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !appsmith.store.currentSalesInvoiceId || !SelectPaperSize.selectedOptionValue || !SelectPrintChannel.selectedOptionValue }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ybb4rbbs4x",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 196,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 16,
+  "mobileTopRow": 192,
+  "needsErrorInfo": false,
+  "onClick": "{{pos_get_business_profile.run();\npos_get_invoice_template.run();\npos_get_printable_sales_invoic.run();\npos_log_invoice_print.run()}}",
+  "originalBottomRow": 196,
+  "originalTopRow": 192,
+  "parentColumnSpace": 11.84326171875,
+  "parentId": "dhvd9bdrn8",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 23,
+  "text": "Print Invoice",
+  "topRow": 14,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "qsuyisfl3g",
+  "widgetName": "ButtonPrintInvoice"
+}

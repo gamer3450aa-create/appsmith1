@@ -1,0 +1,15 @@
+UPDATE purchase_invoices
+SET supplier_id = {{ SelectSupplier.selectedOptionValue }}::uuid,
+    branch_id = {{ SelectBranch.selectedOptionValue }}::uuid,
+    warehouse_id = {{ SelectWarehouse.selectedOptionValue }}::uuid,
+    invoice_date = {{ DateInvoice.selectedDate }}::date,
+    supplier_invoice_number = NULLIF({{ InputSupplierInvoiceNumber.text }}, ''),
+    attachment_url = NULLIF({{ InputAttachmentUrl.text }}, ''),
+    discount_amount = COALESCE(NULLIF({{ InputHeaderDiscount.text }}, '')::numeric, 0),
+    tax_amount = COALESCE(NULLIF({{ InputHeaderTax.text }}, '')::numeric, 0),
+    total_amount = subtotal - COALESCE(NULLIF({{ InputHeaderDiscount.text }}, '')::numeric, 0) + COALESCE(NULLIF({{ InputHeaderTax.text }}, '')::numeric, 0),
+    remaining_amount = subtotal - COALESCE(NULLIF({{ InputHeaderDiscount.text }}, '')::numeric, 0) + COALESCE(NULLIF({{ InputHeaderTax.text }}, '')::numeric, 0) - paid_amount,
+    notes = NULLIF({{ TextAreaInvoiceNotes.text }}, '')
+WHERE id = {{ TablePurchaseInvoices.selectedRow.purchase_invoice_id }}::uuid
+  AND status IN ('draft', 'pending_approval')
+RETURNING *;

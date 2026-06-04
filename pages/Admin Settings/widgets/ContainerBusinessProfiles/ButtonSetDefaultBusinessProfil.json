@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 54,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TableBusinessProfiles.selectedRow?.id }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "tn8serz5md",
+  "leftColumn": 49,
+  "minWidth": 120,
+  "mobileBottomRow": 796,
+  "mobileLeftColumn": 48,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 792,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_set_branch_default_profi.run().then(() => {\n  admin_list_business_profiles.run();\n});}}",
+  "originalBottomRow": 52,
+  "originalTopRow": 48,
+  "parentColumnSpace": 4.328125,
+  "parentId": "4ccdupme84",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Set Default BusinessProfile",
+  "topRow": 50,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "752gdzttgy",
+  "widgetName": "ButtonSetDefaultBusinessProfil"
+}

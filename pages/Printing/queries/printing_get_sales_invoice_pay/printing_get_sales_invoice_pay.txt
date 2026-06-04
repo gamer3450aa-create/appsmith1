@@ -1,0 +1,3 @@
+SELECT get_sales_invoice_print_payload(
+    {{ TableSalesInvoices.selectedRow.sales_invoice_id }}::uuid
+) AS print_payload;

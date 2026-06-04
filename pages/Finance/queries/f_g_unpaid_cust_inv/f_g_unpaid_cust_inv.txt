@@ -1,0 +1,8 @@
+SELECT *
+FROM vw_finance_customer_open_invoices
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY remaining_amount DESC, invoice_date DESC
+LIMIT 100;

@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 53,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !InputTemplateCode.text || !InputTemplateName.text || !TextAreaHtmlTemplate.text }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "tn8serz5md",
+  "leftColumn": 1,
+  "minWidth": 120,
+  "mobileBottomRow": 883,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 17,
+  "mobileTopRow": 879,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_create_invoice_template.run()}}",
+  "originalBottomRow": 81,
+  "originalTopRow": 77,
+  "parentColumnSpace": 4.328125,
+  "parentId": "691khzqvjr",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 17,
+  "text": "Create Invoice Template",
+  "topRow": 49,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "dvbqp1oa6v",
+  "widgetName": "ButtonCreateInvoiceTemplate"
+}

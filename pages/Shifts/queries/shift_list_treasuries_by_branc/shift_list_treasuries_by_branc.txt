@@ -1,0 +1,10 @@
+SELECT
+    id AS value,
+    name AS label,
+    code,
+    treasury_type,
+    current_balance
+FROM treasuries
+WHERE is_active = true
+  AND branch_id = {{ SelectBranch.selectedOptionValue }}::uuid
+ORDER BY name;

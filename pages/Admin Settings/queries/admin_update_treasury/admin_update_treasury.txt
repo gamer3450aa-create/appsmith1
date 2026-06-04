@@ -1,0 +1,12 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+UPDATE treasuries t
+SET code = {{ InputTreasuryCode.text }},
+    name = {{ InputTreasuryName.text }},
+    treasury_type = COALESCE(NULLIF({{ SelectTreasuryType.selectedOptionValue }}, ''), 'cash'),
+    notes = NULLIF({{ TextAreaTreasuryNotes.text }}, ''),
+    is_active = COALESCE({{ SwitchTreasuryActive.isSwitchedOn }}, true)
+FROM current_operator
+WHERE t.id = {{ TableTreasuries.selectedRow.id }}::uuid
+RETURNING t.*;

@@ -1,0 +1,12 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+INSERT INTO warehouses (branch_id, code, name, address, is_active)
+SELECT
+    {{ SelectBranch.selectedOptionValue }}::uuid,
+    {{ InputWarehouseCode.text }},
+    {{ InputWarehouseName.text }},
+    NULLIF({{ TextAreaWarehouseAddress.text }}, ''),
+    COALESCE({{ SwitchWarehouseActive.isSwitchedOn }}, true)
+FROM current_operator
+RETURNING *;

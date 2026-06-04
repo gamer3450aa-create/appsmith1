@@ -1,0 +1,23 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+), selected_profile AS (
+    SELECT id, branch_id
+    FROM business_profiles
+    WHERE id = {{ TableBusinessProfiles.selectedRow.id }}::uuid
+), cleared_defaults AS (
+    UPDATE business_profiles bp
+    SET is_default = false
+    FROM selected_profile sp, current_operator
+    WHERE bp.id <> sp.id
+      AND (
+          bp.branch_id = sp.branch_id
+          OR (bp.branch_id IS NULL AND sp.branch_id IS NULL)
+      )
+    RETURNING bp.id
+)
+UPDATE business_profiles bp
+SET is_default = true,
+    is_active = true
+FROM selected_profile sp, current_operator
+WHERE bp.id = sp.id
+RETURNING bp.*;

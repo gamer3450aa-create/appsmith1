@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 15,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{ TableRoles.selectedRow?.is_system ?? false }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "rybdfr5ha6",
+  "label": "Role System",
+  "labelPosition": "Left",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 51,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 12,
+  "mobileTopRow": 47,
+  "needsErrorInfo": false,
+  "originalBottomRow": 20,
+  "originalTopRow": 16,
+  "parentColumnSpace": 3.043212890625,
+  "parentId": "kacytf7s25",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 61.15555555555556,
+  "topRow": 11,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "7h4ot10947",
+  "widgetName": "SwitchRoleSystem"
+}

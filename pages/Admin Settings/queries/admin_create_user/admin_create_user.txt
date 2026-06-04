@@ -1,0 +1,13 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+INSERT INTO users (role_id, branch_id, full_name, email, phone, is_active)
+SELECT
+    {{ SelectRole.selectedOptionValue }}::uuid,
+    NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid,
+    {{ InputUserFullName.text }},
+    lower(trim({{ InputUserEmail.text }})),
+    NULLIF({{ InputUserPhone.text }}, ''),
+    COALESCE({{ SwitchUserActive.isSwitchedOn }}, true)
+FROM current_operator
+RETURNING id, role_id, branch_id, full_name, email, phone, is_active, created_at, updated_at;

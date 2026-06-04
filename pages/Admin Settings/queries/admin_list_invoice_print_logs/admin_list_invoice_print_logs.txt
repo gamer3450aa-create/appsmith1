@@ -1,0 +1,14 @@
+SELECT
+    ipl.*,
+    it.template_name,
+    u.full_name AS printed_by_name,
+    u.email AS printed_by_email
+FROM invoice_print_logs ipl
+LEFT JOIN invoice_templates it ON it.id = ipl.template_id
+LEFT JOIN users u ON u.id = ipl.printed_by
+WHERE (
+      NULLIF({{ SelectInvoiceType.selectedOptionValue }}, '') IS NULL
+      OR ipl.invoice_type = {{ SelectInvoiceType.selectedOptionValue }}
+  )
+ORDER BY ipl.printed_at DESC
+LIMIT 300;

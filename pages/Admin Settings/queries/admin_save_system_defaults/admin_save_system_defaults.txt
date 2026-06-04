@@ -1,0 +1,43 @@
+WITH app_user AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+),
+vals AS (
+    SELECT
+        'default_branch_id' AS setting_key,
+        NULLIF({{ SelectDefaultBranch.selectedOptionValue }}, '') AS setting_value,
+        'Default branch used by POS and operational screens' AS description,
+        (SELECT user_id FROM app_user) AS updated_by
+    UNION ALL
+    SELECT
+        'default_warehouse_id',
+        NULLIF({{ SelectDefaultWarehouse.selectedOptionValue }}, ''),
+        'Default warehouse used by POS and inventory operations',
+        (SELECT user_id FROM app_user)
+    UNION ALL
+    SELECT
+        'default_treasury_id',
+        NULLIF({{ SelectDefaultTreasury.selectedOptionValue }}, ''),
+        'Default treasury used by POS payments',
+        (SELECT user_id FROM app_user)
+)
+INSERT INTO system_settings (
+    setting_key,
+    setting_value,
+    description,
+    updated_by,
+    updated_at
+)
+SELECT
+    setting_key,
+    setting_value,
+    description,
+    updated_by,
+    now()
+FROM vals
+ON CONFLICT (setting_key)
+DO UPDATE SET
+    setting_value = EXCLUDED.setting_value,
+    description = EXCLUDED.description,
+    updated_by = EXCLUDED.updated_by,
+    updated_at = now()
+RETURNING *;

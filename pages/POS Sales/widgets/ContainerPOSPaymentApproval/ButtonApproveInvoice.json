@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 19,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{\n  !appsmith.store.currentSalesInvoiceId\n  || !TableCart.tableData?.length\n  || TableInvoiceHeader.tableData?.[0]?.status === \"approved\"\n  || TableInvoiceHeader.tableData?.[0]?.status === \"cancelled\"\n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "lxym9v433f",
+  "leftColumn": 32,
+  "minWidth": 120,
+  "mobileBottomRow": 146,
+  "mobileLeftColumn": 32,
+  "mobileRightColumn": 48,
+  "mobileTopRow": 142,
+  "needsErrorInfo": false,
+  "onClick": "{{pos_approve_sales_invoice.run().then(() => {\n  pos_get_sales_invoice_after_ap.run();\n  pos_get_sales_invoice_draft.run();\n  pos_search_products_for_sale.run();\n});}}",
+  "originalBottomRow": 146,
+  "originalTopRow": 142,
+  "parentColumnSpace": 3.468505859375,
+  "parentId": "61f73mrddr",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 48,
+  "text": "Approve Invoice",
+  "topRow": 15,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "esfbkzmpg5",
+  "widgetName": "ButtonApproveInvoice"
+}

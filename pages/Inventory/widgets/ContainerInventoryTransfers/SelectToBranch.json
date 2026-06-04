@@ -1,0 +1,69 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "defaultOptionValue": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "gvamf2z9fe",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "To Branch",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 33.52380952380952,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 112,
+  "mobileLeftColumn": 22,
+  "mobileRightColumn": 42,
+  "mobileTopRow": 105,
+  "needsErrorInfo": false,
+  "onOptionChange": "{{inventory_list_to_warehouses.run()}}",
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 112,
+  "originalTopRow": 105,
+  "parentColumnSpace": 2.2762069702148438,
+  "parentId": "uebpq5j8ct",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "serverSideFiltering": false,
+  "sourceData": "{{ [{ label: \"Select Branch\", value: \"\" }].concat(inventory_list_branches.data || []) }}",
+  "topRow": 0,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "4cdykaws78",
+  "widgetName": "SelectToBranch"
+}

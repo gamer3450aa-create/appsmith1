@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 11,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{ TableCarBrands.selectedRow?.is_active ?? true }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "sfsxvhfqcj",
+  "label": "Car BrandActive",
+  "labelPosition": "Left",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 662,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 12,
+  "mobileTopRow": 658,
+  "needsErrorInfo": false,
+  "originalBottomRow": 12,
+  "originalTopRow": 7,
+  "parentColumnSpace": 4.328125,
+  "parentId": "sghf4licu4",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 39,
+  "topRow": 7,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "cbq1o3edq9",
+  "widgetName": "SwitchCarBrandActive"
+}

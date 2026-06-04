@@ -1,0 +1,1 @@
+SELECT get_admin_system_setup_payload({{ appsmith.user.email }}) AS setup_payload;

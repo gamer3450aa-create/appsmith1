@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 19,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !appsmith.store.currentSalesInvoiceId || !InputPaymentAmount.text || !SelectPaymentMethod.selectedOptionValue || !SelectTreasury.selectedOptionValue }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "lxym9v433f",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 146,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 16,
+  "mobileTopRow": 142,
+  "needsErrorInfo": false,
+  "onClick": "{{pos_add_customer_payment.run().then(() => {\n  pos_get_sales_invoice_draft.run();\n  pos_list_invoice_payments.run();\n  pos_get_payment_methods_summar.run();\n});}}",
+  "originalBottomRow": 146,
+  "originalTopRow": 142,
+  "parentColumnSpace": 3.468505859375,
+  "parentId": "61f73mrddr",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 16,
+  "text": "Add Payment",
+  "topRow": 15,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "mh2sc746co",
+  "widgetName": "ButtonAddPayment"
+}

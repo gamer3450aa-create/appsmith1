@@ -1,0 +1,5 @@
+SELECT
+    MAX(CASE WHEN setting_key = 'default_branch_id' THEN setting_value END) AS default_branch_id,
+    MAX(CASE WHEN setting_key = 'default_warehouse_id' THEN setting_value END) AS default_warehouse_id,
+    MAX(CASE WHEN setting_key = 'default_treasury_id' THEN setting_value END) AS default_treasury_id
+FROM system_settings;

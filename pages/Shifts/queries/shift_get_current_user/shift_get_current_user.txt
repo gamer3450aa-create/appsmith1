@@ -1,0 +1,8 @@
+SELECT
+    u.id,
+    u.full_name,
+    u.email,
+    u.branch_id,
+    u.is_active
+FROM users u
+WHERE u.id = require_app_user_id_by_email({{ appsmith.user.email }});

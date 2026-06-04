@@ -1,0 +1,9 @@
+SELECT *
+FROM vw_customer_balances
+WHERE (
+      NULLIF({{ TableCustomers.searchText }}, '') IS NULL
+      OR customer_code ILIKE '%' || {{ TableCustomers.searchText }} || '%'
+      OR customer_name ILIKE '%' || {{ TableCustomers.searchText }} || '%'
+  )
+ORDER BY current_balance DESC, customer_name
+LIMIT 200;

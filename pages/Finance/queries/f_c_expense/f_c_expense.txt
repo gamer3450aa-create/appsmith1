@@ -1,0 +1,30 @@
+INSERT INTO expenses (
+    expense_number,
+    expense_category_id,
+    treasury_id,
+    branch_id,
+    expense_date,
+    amount,
+    payment_method,
+    status,
+    attachment_url,
+    description,
+    created_by,
+    approved_by,
+    approved_at
+) VALUES (
+    {{ InputExpenseNumber.text }},
+    {{ SelectExpenseCategory.selectedOptionValue }}::uuid,
+    {{ SelectTreasury.selectedOptionValue }}::uuid,
+    {{ SelectBranch.selectedOptionValue }}::uuid,
+    COALESCE(NULLIF({{ DateExpense.selectedDate }}, '')::date, CURRENT_DATE),
+    {{ InputExpenseAmount.text }}::numeric,
+    COALESCE(NULLIF({{ SelectPaymentMethod.selectedOptionValue }}, ''), 'cash'),
+    'approved',
+    NULLIF({{ InputAttachmentUrl.text }}, ''),
+    NULLIF({{ TextAreaExpenseDescription.text }}, ''),
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    now()
+)
+RETURNING *;

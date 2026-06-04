@@ -1,0 +1,11 @@
+SELECT
+    id AS value,
+    sku || ' - ' || name AS label,
+    sku,
+    name AS product_name,
+    default_purchase_price,
+    default_sale_price
+FROM products
+WHERE is_active = true
+ORDER BY name
+LIMIT 200;

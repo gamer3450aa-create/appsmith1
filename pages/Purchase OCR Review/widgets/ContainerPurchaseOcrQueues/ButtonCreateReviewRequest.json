@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TableDocuments.selectedRow?.document_id }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "uxtme9s9qn",
+  "leftColumn": 48,
+  "minWidth": 120,
+  "mobileBottomRow": 29,
+  "mobileLeftColumn": 48,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 25,
+  "needsErrorInfo": false,
+  "onClick": "{{purchase_ocr_create_review_req.run().then(() => {\n  purchase_ocr_list_uploaded_doc.run();\n  purchase_ocr_list_review_queue.run();\n});}}",
+  "originalBottomRow": 29,
+  "originalTopRow": 25,
+  "parentColumnSpace": 4.328125,
+  "parentId": "q780kp8rme",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Create Review Request",
+  "topRow": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "seawtaxs4h",
+  "widgetName": "ButtonCreateReviewRequest"
+}

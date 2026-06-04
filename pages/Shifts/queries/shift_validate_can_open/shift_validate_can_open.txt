@@ -1,0 +1,4 @@
+SELECT validate_shift_can_open(
+    {{ SelectBranch.selectedOptionValue }}::uuid,
+    {{ SelectTreasury.selectedOptionValue }}::uuid
+) AS validation;

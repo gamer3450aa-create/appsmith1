@@ -1,0 +1,10 @@
+SELECT
+    cp.*,
+    normalize_payment_method(cp.payment_method) AS normalized_payment_method,
+    t.name AS treasury_name,
+    b.name AS branch_name
+FROM customer_payments cp
+LEFT JOIN treasuries t ON t.id = cp.treasury_id
+LEFT JOIN branches b ON b.id = cp.branch_id
+WHERE cp.sales_invoice_id = {{ appsmith.store.currentSalesInvoiceId }}::uuid
+ORDER BY cp.payment_date, cp.payment_number;

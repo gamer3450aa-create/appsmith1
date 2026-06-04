@@ -1,0 +1,72 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  TableCustomers.selectedRow?.customer_id || \"\" ))(SelectCustomer.options, SelectCustomer.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "55f4ii0juk",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Customer",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 293,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 286,
+  "needsErrorInfo": false,
+  "onOptionChange": "{{f_l_cust_open_inv.run().then(() => {});\nf_l_cust_payments.run()}}",
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 293,
+  "originalTopRow": 286,
+  "parentColumnSpace": 3.468505859375,
+  "parentId": "xq3w7sa5du",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 20,
+  "serverSideFiltering": false,
+  "sourceData": "{{ [{ label: \"All Customers\", value: \"\" }].concat((f_l_cust_bal.data || []).map(c => ({ label: c.customer_name || c.name, value: c.customer_id || c.id }))) }}",
+  "topRow": 0,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "aznm72fq99",
+  "widgetName": "SelectCustomer"
+}

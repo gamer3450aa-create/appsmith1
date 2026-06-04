@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 22,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{ TableTreasuries.selectedRow?.is_active ?? true }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "66kuaowcyb",
+  "label": "Treasury Active",
+  "labelPosition": "Left",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 52,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 12,
+  "mobileTopRow": 48,
+  "needsErrorInfo": false,
+  "originalBottomRow": 28,
+  "originalTopRow": 23,
+  "parentColumnSpace": 4.328125,
+  "parentId": "vxtc97g0gh",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 42,
+  "topRow": 18,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "9q75q12wls",
+  "widgetName": "SwitchTreasuryActive"
+}

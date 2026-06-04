@@ -1,0 +1,11 @@
+SELECT create_stock_transfer(
+    {{ SelectFromBranch.selectedOptionValue }}::uuid,
+    {{ SelectFromWarehouse.selectedOptionValue }}::uuid,
+    {{ SelectToBranch.selectedOptionValue }}::uuid,
+    {{ SelectToWarehouse.selectedOptionValue }}::uuid,
+    {{ SelectProduct.selectedOptionValue }}::uuid,
+    {{ InputTransferQuantity.text }}::numeric,
+    NULLIF({{ InputUnitCost.text }}, '')::numeric,
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    NULLIF({{ TextAreaTransferNotes.text }}, '')
+) AS movement_group_id;

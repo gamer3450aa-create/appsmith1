@@ -1,0 +1,21 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+UPDATE treasuries t
+SET is_active = false
+FROM current_operator
+WHERE t.id = {{ TableTreasuries.selectedRow.id }}::uuid
+RETURNING t.*;
+
+-- Query: admin_list_expense_categories
+-- Purpose: List expense categories.
+SELECT
+    ec.*,
+    parent.name AS parent_name
+FROM expense_categories ec
+LEFT JOIN expense_categories parent ON parent.id = ec.parent_id
+WHERE (
+      NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '') IS NULL
+      OR ec.is_active = NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY ec.name;

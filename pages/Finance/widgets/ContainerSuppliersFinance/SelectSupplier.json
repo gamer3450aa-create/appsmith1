@@ -1,0 +1,72 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  TableSuppliers.selectedRow?.supplier_id || \"\" ))(SelectSupplier.options, SelectSupplier.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "55f4ii0juk",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Supplier",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 293,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 286,
+  "needsErrorInfo": false,
+  "onOptionChange": "{{f_l_sup_open_inv.run();\nf_l_sup_payments.run()}}",
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 293,
+  "originalTopRow": 286,
+  "parentColumnSpace": 3.468505859375,
+  "parentId": "smqnweeu9o",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 20,
+  "serverSideFiltering": false,
+  "sourceData": "{{ [{ label: \"All Suppliers\", value: \"\" }].concat((f_l_sup_bal.data || []).map(s => ({ label: s.supplier_name || s.name, value: s.supplier_id || s.id }))) }}",
+  "topRow": 0,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "4qd1ocmff9",
+  "widgetName": "SelectSupplier"
+}

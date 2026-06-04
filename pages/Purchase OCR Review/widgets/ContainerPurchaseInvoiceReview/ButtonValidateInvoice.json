@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 25,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TablePurchaseInvoices.selectedRow?.purchase_invoice_id }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "uxtme9s9qn",
+  "leftColumn": 16,
+  "minWidth": 120,
+  "mobileBottomRow": 206,
+  "mobileLeftColumn": 16,
+  "mobileRightColumn": 32,
+  "mobileTopRow": 202,
+  "needsErrorInfo": false,
+  "onClick": "{{purchase_validate_invoice_read.run()}}",
+  "originalBottomRow": 206,
+  "originalTopRow": 202,
+  "parentColumnSpace": 4.328125,
+  "parentId": "ejfmybbtvh",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 32,
+  "text": "Validate Invoice",
+  "topRow": 21,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "otmg64x6hq",
+  "widgetName": "ButtonValidateInvoice"
+}

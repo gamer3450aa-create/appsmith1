@@ -1,0 +1,26 @@
+INSERT INTO sales_invoices (
+    invoice_number,
+    customer_id,
+    branch_id,
+    warehouse_id,
+    invoice_date,
+    status,
+    source,
+    discount_amount,
+    tax_amount,
+    notes,
+    created_by
+) VALUES (
+    COALESCE(NULLIF({{ InputInvoiceNumber.text }}, ''), 'POS-' || to_char(now(), 'YYYYMMDD-HH24MISSMS')),
+    NULLIF({{ SelectCustomer.selectedOptionValue }}, '')::uuid,
+    {{ SelectBranch.selectedOptionValue }}::uuid,
+    {{ SelectWarehouse.selectedOptionValue }}::uuid,
+    COALESCE(NULLIF({{ DateInvoice.selectedDate }}, '')::date, CURRENT_DATE),
+    'draft',
+    'pos',
+    COALESCE(NULLIF({{ InputInvoiceDiscount.text }}, '')::numeric, 0),
+    COALESCE(NULLIF({{ InputInvoiceTax.text }}, '')::numeric, 0),
+    NULLIF({{ TextAreaInvoiceNotes.text }}, ''),
+    require_app_user_id_by_email({{ appsmith.user.email }})
+)
+RETURNING *;

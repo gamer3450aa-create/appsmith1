@@ -1,0 +1,6 @@
+SELECT close_shift(
+    {{ TableShifts.selectedRow.shift_id }}::uuid,
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    {{ InputActualCash.text }}::numeric,
+    NULLIF({{ TextAreaCloseNotes.text }}, '')
+);

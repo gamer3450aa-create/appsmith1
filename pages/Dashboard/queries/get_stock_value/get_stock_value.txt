@@ -1,0 +1,8 @@
+SELECT
+    COALESCE(SUM(inventory_cost_value), 0)::numeric(14,2) AS stock_value
+FROM vw_inventory_balances
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND product_is_active = true;

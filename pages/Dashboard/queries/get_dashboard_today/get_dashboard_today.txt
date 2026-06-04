@@ -1,0 +1,5 @@
+SELECT *
+FROM vw_dashboard_today
+WHERE NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+   OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+ORDER BY branch_name;

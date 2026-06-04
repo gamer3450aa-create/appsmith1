@@ -1,0 +1,4 @@
+SELECT *
+FROM ocr_results
+WHERE uploaded_document_id = {{ TableReviewQueue.selectedRow.uploaded_document_id }}::uuid
+  AND is_latest = true;

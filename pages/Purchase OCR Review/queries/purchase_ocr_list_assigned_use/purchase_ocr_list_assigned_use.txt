@@ -1,0 +1,4 @@
+SELECT id AS value, full_name || ' - ' || email AS label
+FROM users
+WHERE is_active = true
+ORDER BY full_name;

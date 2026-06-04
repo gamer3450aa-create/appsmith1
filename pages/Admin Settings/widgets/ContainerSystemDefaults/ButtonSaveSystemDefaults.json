@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 25,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ \n  !SelectDefaultBranch.selectedOptionValue\n  || !SelectDefaultWarehouse.selectedOptionValue\n  || !SelectDefaultTreasury.selectedOptionValue\n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "nm7txuqhvr",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 802,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 6,
+  "mobileTopRow": 798,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_save_system_defaults.run().then(() => {\n  admin_get_system_defaults.run();\n  admin_list_default_warehouses.run();\n  admin_list_default_treasuries.run();\n});}}",
+  "originalBottomRow": 802,
+  "originalTopRow": 798,
+  "parentColumnSpace": 1.1762924194335938,
+  "parentId": "q1xla6kjil",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 32,
+  "text": "Save Defaults",
+  "topRow": 21,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "fe4zi59ex2",
+  "widgetName": "ButtonSaveSystemDefaults"
+}

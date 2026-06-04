@@ -1,0 +1,58 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TableUsers.selectedRow?.id || String(TableUsers.selectedRow?.is_active) === \"false\" }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ua9mdyb38v",
+  "leftColumn": 48,
+  "minWidth": 120,
+  "mobileBottomRow": 52,
+  "mobileLeftColumn": 48,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 48,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_deactivate_user.run().then(() => {\n  admin_list_users.run();\n});}}",
+  "parentColumnSpace": 4.328125,
+  "parentId": "p1wbichfgj",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Deactivate User",
+  "topRow": 23,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "19azq5lrdb",
+  "widgetName": "ButtonDeactivateUser"
+}

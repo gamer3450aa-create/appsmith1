@@ -1,0 +1,67 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  \"\" ))(SelectDocumentStatus.options, SelectDocumentStatus.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "ffw7i5rryl",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Document Status",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 23,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 7,
+  "mobileLeftColumn": 23,
+  "mobileRightColumn": 43,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onOptionChange": "{{purchase_ocr_list_uploaded_doc.run()}}",
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 3.468505859375,
+  "parentId": "xtewuqsf67",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 43,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  { \"label\": \"All Documents\", \"value\": \"\" },\n  { \"label\": \"Uploaded\", \"value\": \"uploaded\" },\n  { \"label\": \"OCR Processing\", \"value\": \"ocr_processing\" },\n  { \"label\": \"Extracted\", \"value\": \"extracted\" },\n  { \"label\": \"Reviewed\", \"value\": \"reviewed\" },\n  { \"label\": \"Failed\", \"value\": \"failed\" }\n]",
+  "topRow": 0,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "szhjvo23dy",
+  "widgetName": "SelectDocumentStatus"
+}

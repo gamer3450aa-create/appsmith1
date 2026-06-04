@@ -1,0 +1,43 @@
+WITH cfg AS (
+    SELECT
+        (SELECT NULLIF(setting_value, '')::uuid FROM system_settings WHERE setting_key = 'default_branch_id') AS default_branch_id,
+        (SELECT NULLIF(setting_value, '')::uuid FROM system_settings WHERE setting_key = 'default_warehouse_id') AS default_warehouse_id
+),
+vals AS (
+    SELECT
+        NULLIF({{ SelectCustomer.selectedOptionValue }}, '')::uuid AS customer_id,
+        COALESCE(NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid, (SELECT default_branch_id FROM cfg)) AS branch_id,
+        COALESCE(NULLIF({{ SelectWarehouse.selectedOptionValue }}, '')::uuid, (SELECT default_warehouse_id FROM cfg)) AS warehouse_id
+)
+INSERT INTO sales_invoices (
+    invoice_number,
+    customer_id,
+    branch_id,
+    warehouse_id,
+    invoice_date,
+    status,
+    source,
+    discount_amount,
+    tax_amount,
+    notes,
+    created_by
+)
+SELECT
+    'POS-' ||
+    to_char(clock_timestamp() AT TIME ZONE 'Africa/Cairo', 'YYYYMMDD-HH24MISSMS') ||
+    '-' ||
+    lpad((floor(random() * 1000))::int::text, 3, '0'),
+    v.customer_id,
+    v.branch_id,
+    v.warehouse_id,
+    (clock_timestamp() AT TIME ZONE 'Africa/Cairo')::date,
+    'draft',
+    'pos',
+    COALESCE(NULLIF({{ InputInvoiceDiscount.text }}, '')::numeric, 0),
+    COALESCE(NULLIF({{ InputInvoiceTax.text }}, '')::numeric, 0),
+    NULLIF({{ TextAreaInvoiceNotes.text }}, ''),
+    require_app_user_id_by_email({{ appsmith.user.email }})
+FROM vals v
+WHERE v.branch_id IS NOT NULL
+  AND v.warehouse_id IS NOT NULL
+RETURNING id AS sales_invoice_id, *;

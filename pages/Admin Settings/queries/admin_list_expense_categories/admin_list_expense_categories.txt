@@ -1,0 +1,10 @@
+SELECT
+    ec.*,
+    parent.name AS parent_name
+FROM expense_categories ec
+LEFT JOIN expense_categories parent ON parent.id = ec.parent_id
+WHERE (
+      NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '') IS NULL
+      OR ec.is_active = NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY ec.name;

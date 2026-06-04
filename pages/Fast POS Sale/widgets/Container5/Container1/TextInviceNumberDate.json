@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 32,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "0.875rem",
+  "fontStyle": "",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ufyvfr9yhj",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 8,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 16,
+  "mobileTopRow": 4,
+  "needsErrorInfo": false,
+  "originalBottomRow": 27,
+  "originalTopRow": 23,
+  "overflow": "NONE",
+  "parentColumnSpace": 2.3525848388671875,
+  "parentId": "u7jon25pdj",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 16,
+  "shouldTruncate": false,
+  "text": "{{\n  (() => {\n    const invoice = TableInvoiceHeader.tableData?.[0] || {};\n    const dateValue = invoice.invoice_date;\n\n    const dateText = dateValue\n      ? String(dateValue).slice(0, 10).split(\"-\").reverse().join(\"/\")\n      : new Date().toLocaleDateString(\"en-GB\");\n\n    const timeText = new Date().toLocaleTimeString(\"en-GB\", {\n      hour: \"2-digit\",\n      minute: \"2-digit\"\n    });\n\n    return \"Invoice: \" + (invoice.invoice_number || \"New\") + \" | Date: \" + dateText + \" | Time: \" + timeText;\n  })()\n}}",
+  "textAlign": "CENTER",
+  "textColor": "#334155",
+  "topRow": 24,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "3biok1y121",
+  "widgetName": "TextInviceNumberDate"
+}

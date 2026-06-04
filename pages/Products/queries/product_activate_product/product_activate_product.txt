@@ -1,0 +1,4 @@
+UPDATE products
+SET is_active = true
+WHERE id = {{ TableProducts.selectedRow.product_id }}::uuid
+RETURNING *;

@@ -1,0 +1,3 @@
+SELECT validate_sales_invoice_ready_for_approval(
+    {{ appsmith.store.currentSalesInvoiceId }}::uuid
+) AS validation_payload;

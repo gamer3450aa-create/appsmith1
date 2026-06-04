@@ -1,0 +1,24 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+), selected_template AS (
+    SELECT id, branch_id, invoice_type, paper_size
+    FROM invoice_templates
+    WHERE id = {{ TableInvoiceTemplates.selectedRow.id }}::uuid
+), cleared_defaults AS (
+    UPDATE invoice_templates it
+    SET is_default = false
+    FROM selected_template st, current_operator
+    WHERE it.invoice_type = st.invoice_type
+      AND it.paper_size = st.paper_size
+      AND (
+          it.branch_id = st.branch_id
+          OR (it.branch_id IS NULL AND st.branch_id IS NULL)
+      )
+    RETURNING it.id
+)
+UPDATE invoice_templates it
+SET is_default = true,
+    is_active = true
+FROM selected_template st, current_operator
+WHERE it.id = st.id
+RETURNING it.*;

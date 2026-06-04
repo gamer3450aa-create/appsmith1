@@ -1,0 +1,27 @@
+INSERT INTO stock_movements (
+    movement_number,
+    movement_type,
+    branch_id,
+    warehouse_id,
+    product_id,
+    quantity_delta,
+    unit_cost,
+    reason_code,
+    created_by,
+    notes
+) VALUES (
+    COALESCE(
+        NULLIF({{ InputMovementNumber.text }}, ''),
+        'OPEN-' || to_char(current_date, 'YYYYMMDD') || '-' || substr(replace(gen_random_uuid()::text, '-', ''), 1, 10)
+    ),
+    'opening_balance',
+    {{ SelectBranch.selectedOptionValue }}::uuid,
+    {{ SelectWarehouse.selectedOptionValue }}::uuid,
+    {{ SelectProduct.selectedOptionValue }}::uuid,
+    abs({{ InputQuantity.text }}::numeric),
+    NULLIF({{ InputUnitCost.text }}, '')::numeric,
+    'opening_balance',
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    NULLIF({{ TextAreaMovementNotes.text }}, '')
+)
+RETURNING *;

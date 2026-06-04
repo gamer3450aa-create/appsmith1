@@ -1,0 +1,4 @@
+SELECT payment_row
+FROM jsonb_array_elements(
+    get_shift_live_payload({{ TableShifts.selectedRow.shift_id }}::uuid) -> 'supplier_payments'
+) AS payment_row;

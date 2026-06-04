@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 15,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TableCarBrands.selectedRow?.id || String(TableCarBrands.selectedRow?.is_active) === \"false\" }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "v0l936ez0s",
+  "leftColumn": 48,
+  "minWidth": 120,
+  "mobileBottomRow": 666,
+  "mobileLeftColumn": 48,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 662,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_deactivate_car_brand.run().then(() => {\n  admin_list_car_brands.run();\n});}}",
+  "originalBottomRow": 666,
+  "originalTopRow": 662,
+  "parentColumnSpace": 4.328125,
+  "parentId": "sghf4licu4",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Deactivate CarBrand",
+  "topRow": 11,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "tb5my2yfp0",
+  "widgetName": "ButtonDeactivateCarBrand"
+}

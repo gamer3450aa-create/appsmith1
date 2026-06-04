@@ -1,0 +1,6 @@
+SELECT *
+FROM get_invoice_template(
+    NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid,
+    'sales_invoice',
+    COALESCE(NULLIF({{ SelectPaperSize.selectedOptionValue }}, ''), 'a4')
+);

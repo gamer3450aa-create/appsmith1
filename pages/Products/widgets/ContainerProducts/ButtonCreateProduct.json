@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 51,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !InputSku.text || !InputProductName.text || !SelectCategory.selectedOptionValue || !SelectUnit.selectedOptionValue }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "wol8vncbs4",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 50,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 16,
+  "mobileTopRow": 46,
+  "needsErrorInfo": false,
+  "onClick": "{{product_create_product.run().then(() => {\n  product_list_products.run();\n});}}",
+  "originalBottomRow": 51,
+  "originalTopRow": 47,
+  "parentColumnSpace": 3.468505859375,
+  "parentId": "1j5yft4h9l",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 16,
+  "text": "Create Product",
+  "topRow": 47,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "h61ie8xahq",
+  "widgetName": "ButtonCreateProduct"
+}

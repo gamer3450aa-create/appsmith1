@@ -1,0 +1,14 @@
+INSERT INTO expense_categories (
+    parent_id,
+    code,
+    name,
+    description,
+    is_active
+) VALUES (
+    NULLIF({{ SelectParentExpenseCategory.selectedOptionValue }}, '')::uuid,
+    {{ InputExpenseCategoryCode.text }},
+    {{ InputExpenseCategoryName.text }},
+    NULLIF({{ TextAreaExpenseCategoryDescrip.text }}, ''),
+    COALESCE({{ SwitchExpenseCategoryActive.isSwitchedOn }}, true)
+)
+RETURNING *;

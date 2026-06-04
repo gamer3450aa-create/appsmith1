@@ -1,0 +1,26 @@
+INSERT INTO customer_payments (
+    customer_id,
+    sales_invoice_id,
+    payment_number,
+    payment_date,
+    amount,
+    payment_method,
+    treasury_id,
+    branch_id,
+    notes,
+    created_by
+)
+SELECT
+    si.customer_id,
+    si.id,
+    {{ InputPaymentNumber.text }},
+    COALESCE(NULLIF({{ DatePayment.selectedDate }}, '')::date, CURRENT_DATE),
+    {{ InputPaymentAmount.text }}::numeric,
+    {{ SelectPaymentMethod.selectedOptionValue }},
+    NULLIF({{ SelectTreasury.selectedOptionValue }}, '')::uuid,
+    NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid,
+    NULLIF({{ TextAreaPaymentNotes.text }}, ''),
+    require_app_user_id_by_email({{ appsmith.user.email }})
+FROM sales_invoices si
+WHERE si.id = {{ appsmith.store.currentSalesInvoiceId }}::uuid
+RETURNING *;

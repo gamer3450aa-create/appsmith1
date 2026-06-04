@@ -1,0 +1,3 @@
+SELECT *
+FROM business_profiles
+WHERE id = {{ TableBusinessProfiles.selectedRow.id }}::uuid;

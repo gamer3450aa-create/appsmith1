@@ -1,0 +1,27 @@
+INSERT INTO customer_payments (
+    customer_id,
+    sales_invoice_id,
+    payment_number,
+    payment_date,
+    amount,
+    payment_method,
+    treasury_id,
+    branch_id,
+    notes,
+    created_by
+) VALUES (
+    NULLIF({{ SelectCustomer.selectedOptionValue }}, '')::uuid,
+    NULLIF({{ SelectSalesInvoice.selectedOptionValue }}, '')::uuid,
+    {{ InputPaymentNumber.text }},
+    COALESCE(NULLIF({{ DatePayment.selectedDate }}, '')::date, CURRENT_DATE),
+    {{ InputPaymentAmount.text }}::numeric,
+    normalize_payment_method(COALESCE(NULLIF({{ SelectPaymentMethod.selectedOptionValue }}, ''), 'cash')),
+    NULLIF({{ SelectTreasury.selectedOptionValue }}, '')::uuid,
+    CASE
+        WHEN NULLIF({{ SelectTreasury.selectedOptionValue }}, '') IS NULL THEN NULL
+        ELSE NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+    END,
+    NULLIF({{ TextAreaPaymentNotes.text }}, ''),
+    require_app_user_id_by_email({{ appsmith.user.email }})
+)
+RETURNING *;

@@ -1,0 +1,13 @@
+SELECT id AS value,
+       name AS label,
+       code,
+       parent_id,
+       description,
+       is_active
+FROM expense_categories
+WHERE (
+      NULLIF({{ TableExpenseCategories.searchText }}, '') IS NULL
+      OR code ILIKE '%' || {{ TableExpenseCategories.searchText }} || '%'
+      OR name ILIKE '%' || {{ TableExpenseCategories.searchText }} || '%'
+  )
+ORDER BY name;

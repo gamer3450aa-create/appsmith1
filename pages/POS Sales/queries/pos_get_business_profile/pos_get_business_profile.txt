@@ -1,0 +1,2 @@
+SELECT *
+FROM get_business_profile_for_branch({{ SelectBranch.selectedOptionValue }}::uuid);

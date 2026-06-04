@@ -1,0 +1,7 @@
+UPDATE invoice_extraction_item_matches
+SET matched_product_id = NULL,
+    suggested_product_id = NULL,
+    match_status = 'ignored',
+    review_note = NULLIF({{ TextAreaMatchNote.text }}, '')
+WHERE id = {{ TableItemMatches.selectedRow.item_match_id }}::uuid
+RETURNING *;

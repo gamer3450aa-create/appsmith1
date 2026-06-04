@@ -1,0 +1,14 @@
+SELECT
+    w.*,
+    b.name AS branch_name
+FROM warehouses w
+JOIN branches b ON b.id = w.branch_id
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR w.branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '') IS NULL
+      OR w.is_active = NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY b.name, w.name;

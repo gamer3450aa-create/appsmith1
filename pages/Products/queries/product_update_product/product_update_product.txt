@@ -1,0 +1,16 @@
+UPDATE products
+SET sku = {{ InputSku.text }},
+    name = {{ InputProductName.text }},
+    description = NULLIF({{ TextAreaDescription.text }}, ''),
+    category_id = {{ SelectCategory.selectedOptionValue }}::uuid,
+    unit_id = {{ SelectUnit.selectedOptionValue }}::uuid,
+    car_brand_id = NULLIF({{ SelectCarBrand.selectedOptionValue }}, '')::uuid,
+    car_model_id = NULLIF({{ SelectCarModel.selectedOptionValue }}, '')::uuid,
+    manufacturer_part_number = NULLIF({{ InputManufacturerPartNumber.text }}, ''),
+    barcode = NULLIF({{ InputBarcode.text }}, ''),
+    default_purchase_price = COALESCE(NULLIF({{ InputDefaultPurchasePrice.text }}, '')::numeric, 0),
+    default_sale_price = COALESCE(NULLIF({{ InputDefaultSalePrice.text }}, '')::numeric, 0),
+    min_stock_quantity = COALESCE(NULLIF({{ InputMinStockQuantity.text }}, '')::numeric, 0),
+    is_active = COALESCE({{ SwitchProductActive.isSwitchedOn }}, true)
+WHERE id = {{ TableProducts.selectedRow.product_id }}::uuid
+RETURNING *;

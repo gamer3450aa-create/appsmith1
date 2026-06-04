@@ -1,0 +1,1 @@
+SELECT validate_shift_can_close({{ TableShifts.selectedRow.shift_id }}::uuid) AS validation;

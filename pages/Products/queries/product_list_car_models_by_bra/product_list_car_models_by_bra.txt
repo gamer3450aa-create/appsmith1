@@ -1,0 +1,5 @@
+SELECT id AS value, name AS label, start_year, end_year
+FROM car_models
+WHERE is_active = true
+  AND car_brand_id = NULLIF({{ SelectCarBrand.selectedOptionValue }}, '')::uuid
+ORDER BY name, start_year;

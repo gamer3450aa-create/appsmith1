@@ -1,0 +1,3 @@
+SELECT *
+FROM uploaded_documents
+WHERE id = {{ TableReviewQueue.selectedRow.uploaded_document_id }}::uuid;

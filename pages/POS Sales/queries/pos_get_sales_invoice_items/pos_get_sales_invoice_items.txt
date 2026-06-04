@@ -1,0 +1,4 @@
+SELECT *
+FROM vw_sales_invoice_items_detailed
+WHERE sales_invoice_id = {{ appsmith.store.currentSalesInvoiceId }}::uuid
+ORDER BY line_number;

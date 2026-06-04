@@ -1,0 +1,27 @@
+SELECT
+    product_id,
+    sku,
+    product_name,
+    category_name,
+    car_brand_name,
+    car_model_name,
+    barcode,
+    sale_price,
+    warehouse_id,
+    warehouse_name,
+    quantity_on_hand,
+    reserved_quantity,
+    available_quantity,
+    min_stock_quantity,
+    is_low_stock
+FROM vw_pos_products_for_sale
+WHERE branch_id = {{ SelectBranch.selectedOptionValue }}::uuid
+  AND warehouse_id = {{ SelectWarehouse.selectedOptionValue }}::uuid
+  AND (
+      NULLIF({{ InputProductSearch.text }}, '') IS NULL
+      OR sku ILIKE '%' || {{ InputProductSearch.text }} || '%'
+      OR product_name ILIKE '%' || {{ InputProductSearch.text }} || '%'
+      OR barcode ILIKE '%' || {{ InputProductSearch.text }} || '%'
+  )
+ORDER BY product_name
+LIMIT 50;

@@ -1,0 +1,8 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+UPDATE categories c
+SET is_active = false
+FROM current_operator
+WHERE c.id = {{ TableProductCategories.selectedRow.id }}::uuid
+RETURNING c.*;

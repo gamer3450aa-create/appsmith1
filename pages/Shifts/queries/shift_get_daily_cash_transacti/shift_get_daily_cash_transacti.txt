@@ -1,0 +1,9 @@
+SELECT *
+FROM vw_cash_transactions_detailed
+WHERE source_type <> 'treasury_opening'
+  AND transaction_date::date = COALESCE(NULLIF({{ DatePickerShiftDate.selectedDate }}, '')::date, CURRENT_DATE)
+  AND (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY transaction_date DESC;

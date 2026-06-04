@@ -1,0 +1,8 @@
+SELECT *
+FROM vw_sales_invoices_summary
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY invoice_date DESC, invoice_number DESC
+LIMIT 200;

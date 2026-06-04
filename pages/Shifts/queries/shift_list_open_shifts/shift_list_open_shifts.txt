@@ -1,0 +1,12 @@
+SELECT *
+FROM vw_shift_live_summary
+WHERE status = 'open'
+  AND (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectTreasury.selectedOptionValue }}, '') IS NULL
+      OR treasury_id = NULLIF({{ SelectTreasury.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY opened_at DESC;

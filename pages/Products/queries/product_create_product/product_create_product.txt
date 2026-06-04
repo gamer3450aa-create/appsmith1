@@ -1,0 +1,30 @@
+INSERT INTO products (
+    sku,
+    name,
+    description,
+    category_id,
+    unit_id,
+    car_brand_id,
+    car_model_id,
+    manufacturer_part_number,
+    barcode,
+    default_purchase_price,
+    default_sale_price,
+    min_stock_quantity,
+    is_active
+) VALUES (
+    {{ InputSku.text }},
+    {{ InputProductName.text }},
+    NULLIF({{ TextAreaDescription.text }}, ''),
+    {{ SelectCategory.selectedOptionValue }}::uuid,
+    {{ SelectUnit.selectedOptionValue }}::uuid,
+    NULLIF({{ SelectCarBrand.selectedOptionValue }}, '')::uuid,
+    NULLIF({{ SelectCarModel.selectedOptionValue }}, '')::uuid,
+    NULLIF({{ InputManufacturerPartNumber.text }}, ''),
+    NULLIF({{ InputBarcode.text }}, ''),
+    COALESCE(NULLIF({{ InputDefaultPurchasePrice.text }}, '')::numeric, 0),
+    COALESCE(NULLIF({{ InputDefaultSalePrice.text }}, '')::numeric, 0),
+    COALESCE(NULLIF({{ InputMinStockQuantity.text }}, '')::numeric, 0),
+    COALESCE({{ SwitchProductActive.isSwitchedOn }}, true)
+)
+RETURNING *;

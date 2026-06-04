@@ -1,0 +1,46 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+INSERT INTO invoice_templates (
+    branch_id,
+    template_code,
+    template_name,
+    invoice_type,
+    paper_size,
+    language,
+    html_template,
+    css_template,
+    show_logo,
+    show_tax_number,
+    show_customer_info,
+    show_product_sku,
+    show_barcode,
+    show_qr_code,
+    show_discount,
+    show_tax,
+    show_footer,
+    is_default,
+    is_active
+)
+SELECT
+    NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid,
+    {{ InputTemplateCode.text }},
+    {{ InputTemplateName.text }},
+    {{ SelectInvoiceType.selectedOptionValue }},
+    COALESCE(NULLIF({{ SelectPaperSize.selectedOptionValue }}, ''), 'a4'),
+    COALESCE(NULLIF({{ SelectLanguage.selectedOptionValue }}, ''), 'ar'),
+    {{ TextAreaHtmlTemplate.text }},
+    NULLIF({{ TextAreaCssTemplate.text }}, ''),
+    COALESCE({{ SwitchShowLogo.isSwitchedOn }}, true),
+    COALESCE({{ SwitchShowTaxNumber.isSwitchedOn }}, true),
+    COALESCE({{ SwitchShowCustomerInfo.isSwitchedOn }}, true),
+    COALESCE({{ SwitchShowProductSku.isSwitchedOn }}, true),
+    COALESCE({{ SwitchShowBarcode.isSwitchedOn }}, false),
+    COALESCE({{ SwitchShowQrCode.isSwitchedOn }}, false),
+    COALESCE({{ SwitchShowDiscount.isSwitchedOn }}, true),
+    COALESCE({{ SwitchShowTax.isSwitchedOn }}, true),
+    COALESCE({{ SwitchShowFooter.isSwitchedOn }}, true),
+    COALESCE({{ SwitchDefaultTemplate.isSwitchedOn }}, false),
+    COALESCE({{ SwitchTemplateActive.isSwitchedOn }}, true)
+FROM current_operator
+RETURNING *;

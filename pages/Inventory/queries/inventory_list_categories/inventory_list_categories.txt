@@ -1,0 +1,4 @@
+SELECT id AS value, name AS label
+FROM categories
+WHERE is_active = true
+ORDER BY name;

@@ -1,0 +1,3 @@
+SELECT *
+FROM invoice_templates
+WHERE id = {{ TableInvoiceTemplates.selectedRow.id }}::uuid;

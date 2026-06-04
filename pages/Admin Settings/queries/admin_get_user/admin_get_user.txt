@@ -1,0 +1,13 @@
+SELECT
+    u.id,
+    u.full_name,
+    u.email,
+    u.phone,
+    u.branch_id,
+    u.role_id,
+    u.is_active,
+    u.last_login_at,
+    u.created_at,
+    u.updated_at
+FROM users u
+WHERE u.id = {{ TableUsers.selectedRow.id }}::uuid;

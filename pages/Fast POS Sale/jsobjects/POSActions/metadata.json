@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "6a18d17583dcde86e3939d70_eff110b4-4ddb-4c97-9c6e-07e2da27ff3a",
+  "id": "Fast POS Sale_POSActions",
+  "unpublishedCollection": {
+    "name": "POSActions",
+    "pageId": "Fast POS Sale",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

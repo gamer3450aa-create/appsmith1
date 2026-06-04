@@ -1,0 +1,12 @@
+SELECT
+    si.id AS sales_invoice_id,
+    si.invoice_number,
+    si.total_amount,
+    si.paid_amount,
+    si.remaining_amount,
+    {{ InputPaymentAmount.text }}::numeric AS proposed_payment_amount,
+    ({{ InputPaymentAmount.text }}::numeric > 0) AS amount_is_positive,
+    ({{ InputPaymentAmount.text }}::numeric <= si.remaining_amount) AS payment_within_remaining,
+    ({{ InputPaymentAmount.text }}::numeric > 0 AND {{ InputPaymentAmount.text }}::numeric <= si.remaining_amount) AS can_accept_payment
+FROM sales_invoices si
+WHERE si.id = {{ appsmith.store.currentSalesInvoiceId }}::uuid;

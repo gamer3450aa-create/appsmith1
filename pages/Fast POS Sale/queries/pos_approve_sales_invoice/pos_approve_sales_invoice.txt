@@ -1,0 +1,4 @@
+SELECT approve_sales_invoice(
+    {{ appsmith.store.currentSalesInvoiceId }}::uuid,
+    require_app_user_id_by_email({{ appsmith.user.email }})
+);

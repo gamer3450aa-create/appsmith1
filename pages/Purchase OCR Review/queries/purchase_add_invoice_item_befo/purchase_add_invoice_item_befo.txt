@@ -1,0 +1,29 @@
+INSERT INTO purchase_invoice_items (
+    purchase_invoice_id,
+    product_id,
+    line_number,
+    raw_item_name,
+    quantity,
+    unit_cost,
+    sale_price,
+    discount_amount,
+    tax_amount,
+    line_total,
+    notes
+)
+SELECT
+    pi.id,
+    {{ SelectProduct.selectedOptionValue }}::uuid,
+    COALESCE(NULLIF({{ InputLineNumber.text }}, '')::integer, 1),
+    NULLIF({{ InputRawItemName.text }}, ''),
+    {{ InputQuantity.text }}::numeric,
+    {{ InputUnitCost.text }}::numeric,
+    NULLIF({{ InputSalePrice.text }}, '')::numeric,
+    COALESCE(NULLIF({{ InputLineDiscount.text }}, '')::numeric, 0),
+    COALESCE(NULLIF({{ InputLineTax.text }}, '')::numeric, 0),
+    round(({{ InputQuantity.text }}::numeric * {{ InputUnitCost.text }}::numeric) - COALESCE(NULLIF({{ InputLineDiscount.text }}, '')::numeric, 0) + COALESCE(NULLIF({{ InputLineTax.text }}, '')::numeric, 0), 2),
+    NULLIF({{ TextAreaItemNotes.text }}, '')
+FROM purchase_invoices pi
+WHERE pi.id = {{ TablePurchaseInvoices.selectedRow.purchase_invoice_id }}::uuid
+  AND pi.status IN ('draft', 'pending_approval')
+RETURNING *;

@@ -1,0 +1,11 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+INSERT INTO roles (code, name, description, is_system)
+SELECT
+    {{ InputRoleCode.text }},
+    {{ InputRoleName.text }},
+    NULLIF({{ TextAreaRoleDescription.text }}, ''),
+    COALESCE({{ SwitchRoleSystem.isSwitchedOn }}, false)
+FROM current_operator
+RETURNING *;

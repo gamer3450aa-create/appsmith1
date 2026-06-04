@@ -1,0 +1,20 @@
+SELECT sp.*,
+       s.name AS supplier_name,
+       pi.invoice_number AS purchase_invoice_number,
+       t.name AS treasury_name,
+       b.name AS branch_name
+FROM supplier_payments sp
+JOIN suppliers s ON s.id = sp.supplier_id
+LEFT JOIN purchase_invoices pi ON pi.id = sp.purchase_invoice_id
+LEFT JOIN treasuries t ON t.id = sp.treasury_id
+LEFT JOIN branches b ON b.id = sp.branch_id
+WHERE (
+      NULLIF({{ SelectSupplier.selectedOptionValue }}, '') IS NULL
+      OR sp.supplier_id = NULLIF({{ SelectSupplier.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectPurchaseInvoice.selectedOptionValue }}, '') IS NULL
+      OR sp.purchase_invoice_id = NULLIF({{ SelectPurchaseInvoice.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY sp.payment_date DESC, sp.payment_number DESC
+LIMIT 200;

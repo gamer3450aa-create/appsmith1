@@ -1,0 +1,4 @@
+SELECT *
+FROM invoice_extraction_item_matches
+WHERE extraction_result_id = {{ TableReviewQueue.selectedRow.extraction_result_id }}::uuid
+ORDER BY line_number;

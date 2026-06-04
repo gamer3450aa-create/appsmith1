@@ -1,0 +1,3 @@
+SELECT *
+FROM vw_cash_transactions_detailed
+WHERE cash_transaction_id = {{ TableCashTransactions.selectedRow.cash_transaction_id }}::uuid;

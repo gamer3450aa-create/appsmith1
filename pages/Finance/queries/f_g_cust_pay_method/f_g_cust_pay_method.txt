@@ -1,0 +1,19 @@
+SELECT *
+FROM vw_customer_payments_by_method_daily
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectPaymentMethod.selectedOptionValue }}, '') IS NULL
+      OR payment_method = {{ SelectPaymentMethod.selectedOptionValue }}
+  )
+  AND (
+      NULLIF({{ DatePaymentsFrom.selectedDate }}, '') IS NULL
+      OR payment_date >= NULLIF({{ DatePaymentsFrom.selectedDate }}, '')::date
+  )
+  AND (
+      NULLIF({{ DatePaymentsTo.selectedDate }}, '') IS NULL
+      OR payment_date <= NULLIF({{ DatePaymentsTo.selectedDate }}, '')::date
+  )
+ORDER BY payment_date DESC, branch_name, payment_method;

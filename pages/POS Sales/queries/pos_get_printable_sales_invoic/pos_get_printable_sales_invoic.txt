@@ -1,0 +1,3 @@
+SELECT get_sales_invoice_print_payload(
+    {{ appsmith.store.currentSalesInvoiceId }}::uuid
+) AS print_payload;

@@ -1,0 +1,8 @@
+UPDATE invoice_extraction_item_matches
+SET matched_product_id = {{ SelectMatchedProduct.selectedOptionValue }}::uuid,
+    suggested_product_id = NULL,
+    match_status = 'matched',
+    match_confidence = COALESCE(NULLIF({{ InputMatchConfidence.text }}, '')::numeric, 1),
+    review_note = NULLIF({{ TextAreaMatchNote.text }}, '')
+WHERE id = {{ TableItemMatches.selectedRow.item_match_id }}::uuid
+RETURNING *;

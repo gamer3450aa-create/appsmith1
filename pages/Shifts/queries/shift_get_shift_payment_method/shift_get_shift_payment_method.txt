@@ -1,0 +1,13 @@
+SELECT
+    method_row ->> 'payment_method' AS payment_method,
+    (method_row ->> 'customer_payment_total')::numeric AS customer_payment_total,
+    (method_row ->> 'supplier_payment_total')::numeric AS supplier_payment_total,
+    (method_row ->> 'expense_total')::numeric AS expense_total,
+    (method_row ->> 'cash_in_total')::numeric AS cash_in_total,
+    (method_row ->> 'cash_out_total')::numeric AS cash_out_total,
+    (method_row ->> 'net_total')::numeric AS net_total,
+    (method_row ->> 'transaction_count')::integer AS transaction_count
+FROM jsonb_array_elements(
+    get_shift_live_payload({{ TableShifts.selectedRow.shift_id }}::uuid) -> 'payment_methods'
+) AS method_row
+ORDER BY payment_method;

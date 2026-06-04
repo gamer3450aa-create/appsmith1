@@ -1,0 +1,9 @@
+SELECT *
+FROM vw_expenses_summary
+WHERE status = 'approved'
+  AND expense_date = CURRENT_DATE
+  AND (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY expense_number;

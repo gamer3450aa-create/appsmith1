@@ -1,0 +1,15 @@
+SELECT create_invoice_review_request(
+    {{ TableDocuments.selectedRow.document_id }}::uuid,
+    (
+        SELECT id
+        FROM invoice_extraction_results
+        WHERE uploaded_document_id = {{ TableDocuments.selectedRow.document_id }}::uuid
+          AND is_latest = true
+        LIMIT 1
+    ),
+    'purchase_invoice',
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    NULLIF({{ SelectAssignedUser.selectedOptionValue }}, '')::uuid,
+    NULL,
+    NULLIF({{ TextAreaReviewNotes.text }}, '')
+) AS review_request_id;

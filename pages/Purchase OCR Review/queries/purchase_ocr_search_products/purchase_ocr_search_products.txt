@@ -1,0 +1,20 @@
+SELECT
+    p.id AS value,
+    p.id AS product_id,
+    p.sku,
+    p.name AS product_name,
+    p.default_purchase_price,
+    p.default_sale_price,
+    c.name AS category_name,
+    p.sku || ' - ' || p.name AS label
+FROM products p
+JOIN categories c ON c.id = p.category_id
+WHERE p.is_active = true
+  AND (
+      NULLIF({{ InputProductSearch.text }}, '') IS NULL
+      OR p.sku ILIKE '%' || {{ InputProductSearch.text }} || '%'
+      OR p.barcode ILIKE '%' || {{ InputProductSearch.text }} || '%'      OR p.name ILIKE '%' || {{ InputProductSearch.text }} || '%'
+      OR p.manufacturer_part_number ILIKE '%' || {{ InputProductSearch.text }} || '%'
+  )
+ORDER BY p.name
+LIMIT 50;

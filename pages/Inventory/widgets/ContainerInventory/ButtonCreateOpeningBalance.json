@@ -1,0 +1,58 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 39,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !SelectBranch.selectedOptionValue || !SelectWarehouse.selectedOptionValue || !SelectProduct.selectedOptionValue || !InputQuantity.text }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "t8umelo02b",
+  "leftColumn": 1,
+  "minWidth": 120,
+  "mobileBottomRow": 39,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 17,
+  "mobileTopRow": 35,
+  "needsErrorInfo": false,
+  "onClick": "{{inventory_create_opening_bala.run().then(() => {\n  inventory_list_balances.run();\n  inventory_list_stock_movements.run();\n  inventory_list_low_stock.run();\n});}}",
+  "parentColumnSpace": 3.468505859375,
+  "parentId": "jpfv9hinrd",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 17,
+  "text": "Create Opening Balance",
+  "topRow": 35,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "o39nouqcky",
+  "widgetName": "ButtonCreateOpeningBalance"
+}

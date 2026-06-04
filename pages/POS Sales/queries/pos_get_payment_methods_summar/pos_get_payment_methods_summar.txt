@@ -1,0 +1,8 @@
+SELECT
+    normalize_payment_method(payment_method) AS payment_method,
+    count(*)::INTEGER AS payment_count,
+    COALESCE(sum(amount), 0)::NUMERIC(14,2) AS total_amount
+FROM customer_payments
+WHERE sales_invoice_id = {{ appsmith.store.currentSalesInvoiceId }}::uuid
+GROUP BY normalize_payment_method(payment_method)
+ORDER BY payment_method;

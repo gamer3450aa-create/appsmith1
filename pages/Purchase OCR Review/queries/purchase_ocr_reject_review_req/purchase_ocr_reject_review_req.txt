@@ -1,0 +1,5 @@
+SELECT reject_invoice_review_request(
+    {{ TableReviewQueue.selectedRow.review_request_id }}::uuid,
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    NULLIF({{ TextAreaReviewNotes.text }}, '')
+);

@@ -1,0 +1,14 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+INSERT INTO branches (code, name, legal_name, phone, email, address, is_active)
+SELECT
+    {{ InputBranchCode.text }},
+    {{ InputBranchName.text }},
+    NULLIF({{ InputBranchLegalName.text }}, ''),
+    NULLIF({{ InputBranchPhone.text }}, ''),
+    NULLIF({{ InputBranchEmail.text }}, ''),
+    NULLIF({{ TextAreaBranchAddress.text }}, ''),
+    COALESCE({{ SwitchBranchActive.isSwitchedOn }}, true)
+FROM current_operator
+RETURNING *;

@@ -1,0 +1,23 @@
+SELECT
+    cash_transaction_id,
+    transaction_number,
+    transaction_date,
+    branch_name,
+    treasury_name,
+    transaction_type,
+    source_type,
+    amount,
+    signed_amount,
+    payment_method,
+    created_by_name
+FROM vw_cash_transactions_detailed
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectTreasury.selectedOptionValue }}, '') IS NULL
+      OR treasury_id = NULLIF({{ SelectTreasury.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY transaction_date DESC
+LIMIT 50;

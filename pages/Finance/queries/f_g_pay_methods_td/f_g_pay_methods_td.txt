@@ -1,0 +1,13 @@
+SELECT *
+FROM vw_dashboard_payment_methods_today
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+ORDER BY branch_name, payment_method;
+
+-- Query: finance_get_cash_in_out_today
+-- Purpose: Return one JSON finance dashboard payload for the selected branch or all branches.
+SELECT get_finance_dashboard_payload(
+    NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+) AS finance_dashboard;

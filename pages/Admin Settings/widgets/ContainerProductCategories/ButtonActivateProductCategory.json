@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 26,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TableProductCategories.selectedRow?.id || String(TableProductCategories.selectedRow?.is_active) === \"true\" }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "v0l936ez0s",
+  "leftColumn": 32,
+  "minWidth": 120,
+  "mobileBottomRow": 555,
+  "mobileLeftColumn": 32,
+  "mobileRightColumn": 48,
+  "mobileTopRow": 551,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_activate_product_categor.run().then(() => {\n  admin_list_product_categories.run();\n});}}",
+  "originalBottomRow": 30,
+  "originalTopRow": 26,
+  "parentColumnSpace": 4.328125,
+  "parentId": "tzmz953l9g",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 48,
+  "text": "Activate ProductCategory",
+  "topRow": 22,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "l872tsey6z",
+  "widgetName": "ButtonActivateProductCategory"
+}

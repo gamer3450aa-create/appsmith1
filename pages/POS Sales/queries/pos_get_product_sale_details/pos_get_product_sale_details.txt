@@ -1,0 +1,5 @@
+SELECT get_pos_product_sale_details(
+    {{ TableProductResults.selectedRow.product_id }}::uuid,
+    {{ SelectBranch.selectedOptionValue }}::uuid,
+    {{ SelectWarehouse.selectedOptionValue }}::uuid
+) AS product_payload;

@@ -1,0 +1,9 @@
+SELECT *
+FROM vw_supplier_balances
+WHERE (
+      NULLIF({{ TableSuppliers.searchText }}, '') IS NULL
+      OR supplier_code ILIKE '%' || {{ TableSuppliers.searchText }} || '%'
+      OR supplier_name ILIKE '%' || {{ TableSuppliers.searchText }} || '%'
+  )
+ORDER BY current_balance DESC, supplier_name
+LIMIT 200;

@@ -1,0 +1,7 @@
+SELECT log_invoice_print(
+    'purchase_invoice',
+    {{ TablePurchaseInvoices.selectedRow.purchase_invoice_id }}::uuid,
+    {{ SelectInvoiceTemplate.selectedOptionValue }}::uuid,
+    require_app_user_id_by_email({{ appsmith.user.email }}),
+    COALESCE(NULLIF({{ SelectPrintChannel.selectedOptionValue }}, ''), 'appsmith')
+) AS print_log_id;

@@ -1,0 +1,20 @@
+SELECT *
+FROM vw_purchase_ocr_review_queue
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectReviewStatus.selectedOptionValue }}, '') IS NULL
+      OR review_status = {{ SelectReviewStatus.selectedOptionValue }}
+  )
+  AND (
+      NULLIF({{ InputReviewSearch.text }}, '') IS NULL
+      OR document_number ILIKE '%' || {{ InputReviewSearch.text }} || '%'
+      OR filename ILIKE '%' || {{ InputReviewSearch.text }} || '%'
+      OR detected_invoice_number ILIKE '%' || {{ InputReviewSearch.text }} || '%'
+      OR detected_supplier_name ILIKE '%' || {{ InputReviewSearch.text }} || '%'
+  )
+ORDER BY created_at DESC
+LIMIT COALESCE(NULLIF({{ TableReviewQueue.pageSize }}, '')::integer, 50)
+OFFSET COALESCE(NULLIF({{ TableReviewQueue.pageOffset }}, '')::integer, 0);

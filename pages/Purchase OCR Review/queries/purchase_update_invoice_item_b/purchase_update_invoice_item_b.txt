@@ -1,0 +1,16 @@
+UPDATE purchase_invoice_items pii
+SET product_id = {{ SelectProduct.selectedOptionValue }}::uuid,
+    line_number = COALESCE(NULLIF({{ InputLineNumber.text }}, '')::integer, pii.line_number),
+    raw_item_name = NULLIF({{ InputRawItemName.text }}, ''),
+    quantity = {{ InputQuantity.text }}::numeric,
+    unit_cost = {{ InputUnitCost.text }}::numeric,
+    sale_price = NULLIF({{ InputSalePrice.text }}, '')::numeric,
+    discount_amount = COALESCE(NULLIF({{ InputLineDiscount.text }}, '')::numeric, 0),
+    tax_amount = COALESCE(NULLIF({{ InputLineTax.text }}, '')::numeric, 0),
+    line_total = round(({{ InputQuantity.text }}::numeric * {{ InputUnitCost.text }}::numeric) - COALESCE(NULLIF({{ InputLineDiscount.text }}, '')::numeric, 0) + COALESCE(NULLIF({{ InputLineTax.text }}, '')::numeric, 0), 2),
+    notes = NULLIF({{ TextAreaItemNotes.text }}, '')
+FROM purchase_invoices pi
+WHERE pii.id = {{ TablePurchaseInvoiceItems.selectedRow.purchase_invoice_item_id }}::uuid
+  AND pi.id = pii.purchase_invoice_id
+  AND pi.status IN ('draft', 'pending_approval')
+RETURNING pii.*;

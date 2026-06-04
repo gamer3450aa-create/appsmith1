@@ -1,0 +1,13 @@
+SELECT
+    cm.*,
+    cb.name AS car_brand_name
+FROM car_models cm
+JOIN car_brands cb ON cb.id = cm.car_brand_id
+WHERE (
+      NULLIF({{ SelectCarBrand.selectedOptionValue }}, '') IS NULL
+      OR cm.car_brand_id = NULLIF({{ SelectCarBrand.selectedOptionValue }}, '')::uuid  )
+  AND (
+      NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '') IS NULL
+      OR cm.is_active = NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY cb.name, cm.name;

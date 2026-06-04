@@ -1,0 +1,7 @@
+SELECT convert_extraction_to_purchase_invoice_draft(
+    {{ TableReviewQueue.selectedRow.review_request_id }}::uuid,
+    {{ SelectSupplier.selectedOptionValue }}::uuid,
+    {{ SelectBranch.selectedOptionValue }}::uuid,
+    {{ SelectWarehouse.selectedOptionValue }}::uuid,
+    require_app_user_id_by_email({{ appsmith.user.email }})
+) AS purchase_invoice_id;

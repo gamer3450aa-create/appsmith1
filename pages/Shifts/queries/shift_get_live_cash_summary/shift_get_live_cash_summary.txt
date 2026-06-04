@@ -1,0 +1,7 @@
+SELECT
+    (payload -> 'shift' ->> 'shift_id')::uuid AS shift_id,
+    payload -> 'totals' AS totals,
+    payload -> 'payment_methods' AS payment_methods
+FROM (
+    SELECT get_shift_live_payload({{ TableShifts.selectedRow.shift_id }}::uuid) AS payload
+) p;

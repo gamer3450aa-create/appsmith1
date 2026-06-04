@@ -1,0 +1,14 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+INSERT INTO treasuries (branch_id, code, name, treasury_type, opening_balance, notes, is_active)
+SELECT
+    {{ SelectBranch.selectedOptionValue }}::uuid,
+    {{ InputTreasuryCode.text }},
+    {{ InputTreasuryName.text }},
+    COALESCE(NULLIF({{ SelectTreasuryType.selectedOptionValue }}, ''), 'cash'),
+    COALESCE(NULLIF({{ InputOpeningBalance.text }}, '')::numeric, 0),
+    NULLIF({{ TextAreaTreasuryNotes.text }}, ''),
+    COALESCE({{ SwitchTreasuryActive.isSwitchedOn }}, true)
+FROM current_operator
+RETURNING *;

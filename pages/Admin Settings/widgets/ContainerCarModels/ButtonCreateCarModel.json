@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 22,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !SelectCarBrand.selectedOptionValue || !InputCarModelName.text }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "tn8serz5md",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 714,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 16,
+  "mobileTopRow": 710,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_create_car_model.run().then(() => {\n  admin_list_car_models.run();\n});}}",
+  "originalBottomRow": 23,
+  "originalTopRow": 19,
+  "parentColumnSpace": 4.328125,
+  "parentId": "jg0fd1ci65",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 16,
+  "text": "Create CarModel",
+  "topRow": 18,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "wn6zh6u8as",
+  "widgetName": "ButtonCreateCarModel"
+}

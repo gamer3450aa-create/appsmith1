@@ -1,0 +1,6 @@
+DELETE FROM purchase_invoice_items pii
+USING purchase_invoices pi
+WHERE pii.id = {{ TablePurchaseInvoiceItems.selectedRow.purchase_invoice_item_id }}::uuid
+  AND pi.id = pii.purchase_invoice_id
+  AND pi.status IN ('draft', 'pending_approval')
+RETURNING pii.*;

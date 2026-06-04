@@ -1,0 +1,13 @@
+SELECT
+    u.id,
+    u.full_name,
+    u.email,
+    u.branch_id,
+    b.name AS branch_name,
+    u.role_id,
+    r.name AS role_name,
+    u.is_active
+FROM users u
+JOIN roles r ON r.id = u.role_id
+LEFT JOIN branches b ON b.id = u.branch_id
+WHERE u.id = require_app_user_id_by_email({{ appsmith.user.email }});

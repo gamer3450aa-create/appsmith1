@@ -1,0 +1,58 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 11,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !SelectBranch.selectedOptionValue || !InputWarehouseCode.text || !InputWarehouseName.text }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "38owd5jpy5",
+  "leftColumn": 16,
+  "minWidth": 120,
+  "mobileBottomRow": 38,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 15,
+  "mobileTopRow": 34,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_create_warehouse.run().then(() => {\n  admin_list_warehouses.run();\n});}}",
+  "parentColumnSpace": 4.328125,
+  "parentId": "gjsilxga84",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 31,
+  "text": "Create Warehouse",
+  "topRow": 7,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "v9vfuguk1v",
+  "widgetName": "ButtonCreateWarehouse"
+}

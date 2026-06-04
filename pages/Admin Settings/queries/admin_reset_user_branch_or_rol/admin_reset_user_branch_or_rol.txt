@@ -1,0 +1,9 @@
+WITH current_operator AS (
+    SELECT require_app_user_id_by_email({{ appsmith.user.email }}) AS user_id
+)
+UPDATE users u
+SET branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid,
+    role_id = {{ SelectRole.selectedOptionValue }}::uuid
+FROM current_operator
+WHERE u.id = {{ TableUsers.selectedRow.id }}::uuid
+RETURNING u.id, u.full_name, u.email, u.branch_id, u.role_id;

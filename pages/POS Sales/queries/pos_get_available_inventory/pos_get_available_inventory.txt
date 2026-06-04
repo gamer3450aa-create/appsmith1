@@ -1,0 +1,15 @@
+SELECT
+    product_id,
+    sku,
+    product_name,
+    warehouse_id,
+    warehouse_name,
+    quantity_on_hand,
+    reserved_quantity,
+    available_quantity,
+    min_stock_quantity,
+    is_low_stock
+FROM vw_pos_products_for_sale
+WHERE product_id = {{ TableProductResults.selectedRow.product_id }}::uuid
+  AND branch_id = {{ SelectBranch.selectedOptionValue }}::uuid
+  AND warehouse_id = {{ SelectWarehouse.selectedOptionValue }}::uuid;

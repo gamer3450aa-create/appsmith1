@@ -1,0 +1,1 @@
+SELECT recalculate_sales_invoice_totals({{ appsmith.store.currentSalesInvoiceId }}::uuid);

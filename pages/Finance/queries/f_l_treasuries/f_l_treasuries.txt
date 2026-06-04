@@ -1,0 +1,15 @@
+SELECT *
+FROM vw_treasury_balances
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectTreasuryType.selectedOptionValue }}, '') IS NULL
+      OR treasury_type = {{ SelectTreasuryType.selectedOptionValue }}
+  )
+  AND (
+      NULLIF({{ SelectTreasuryActive.selectedOptionValue }}, '') IS NULL
+      OR is_active = NULLIF({{ SelectTreasuryActive.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY branch_name, treasury_name;

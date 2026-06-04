@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 24,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !TableExpenseCategories.selectedRow?.id || String(TableExpenseCategories.selectedRow?.is_active) === \"false\" }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "v0l936ez0s",
+  "leftColumn": 48,
+  "minWidth": 120,
+  "mobileBottomRow": 616,
+  "mobileLeftColumn": 48,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 612,
+  "needsErrorInfo": false,
+  "onClick": "{{admin_deactivate_expense_categ.run().then(() => {\n  admin_list_expense_categories.run();\n});}}",
+  "originalBottomRow": 25,
+  "originalTopRow": 21,
+  "parentColumnSpace": 4.328125,
+  "parentId": "qnzmpvqpmf",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Deactivate Expense Category",
+  "topRow": 20,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "6683bk94nl",
+  "widgetName": "ButtonDeactivateExpenseCategor"
+}

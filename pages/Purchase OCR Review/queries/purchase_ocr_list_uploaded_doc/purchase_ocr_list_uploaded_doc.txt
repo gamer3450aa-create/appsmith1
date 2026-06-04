@@ -1,0 +1,18 @@
+SELECT *
+FROM vw_uploaded_documents_queue
+WHERE (latest_invoice_direction = 'purchase' OR latest_invoice_direction IS NULL)
+  AND (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectDocumentStatus.selectedOptionValue }}, '') IS NULL
+      OR document_status = {{ SelectDocumentStatus.selectedOptionValue }}
+  )
+  AND (
+      NULLIF({{ InputDocumentSearch.text }}, '') IS NULL
+      OR document_number ILIKE '%' || {{ InputDocumentSearch.text }} || '%'
+      OR filename ILIKE '%' || {{ InputDocumentSearch.text }} || '%'  )
+ORDER BY created_at DESC
+LIMIT COALESCE(NULLIF({{ TableDocuments.pageSize }}, '')::integer, 50)
+OFFSET COALESCE(NULLIF({{ TableDocuments.pageOffset }}, '')::integer, 0);

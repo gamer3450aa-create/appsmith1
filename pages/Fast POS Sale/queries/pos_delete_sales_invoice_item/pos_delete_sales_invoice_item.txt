@@ -1,0 +1,12 @@
+WITH target_item AS (
+    SELECT
+        sii.id
+    FROM sales_invoice_items sii
+    JOIN sales_invoices si ON si.id = sii.sales_invoice_id
+    WHERE sii.id = {{ appsmith.store.deleteCartItemId }}::uuid
+      AND si.status IN ('draft', 'pending_approval')
+)
+DELETE FROM sales_invoice_items sii
+USING target_item ti
+WHERE sii.id = ti.id
+RETURNING sii.*;

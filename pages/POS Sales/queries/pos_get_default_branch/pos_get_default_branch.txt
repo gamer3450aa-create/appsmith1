@@ -1,0 +1,12 @@
+WITH cfg AS (
+    SELECT NULLIF(setting_value, '')::uuid AS branch_id
+    FROM system_settings
+    WHERE setting_key = 'default_branch_id'
+)
+SELECT b.id AS value, b.name AS label
+FROM branches b
+WHERE b.is_active = true
+ORDER BY
+    CASE WHEN b.id = (SELECT branch_id FROM cfg) THEN 0 ELSE 1 END,
+    b.created_at ASC
+LIMIT 1;

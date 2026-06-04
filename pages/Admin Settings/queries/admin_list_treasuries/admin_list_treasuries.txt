@@ -1,0 +1,14 @@
+SELECT
+    t.*,
+    b.name AS branch_name
+FROM treasuries t
+JOIN branches b ON b.id = t.branch_id
+WHERE (
+      NULLIF({{ SelectBranch.selectedOptionValue }}, '') IS NULL
+      OR t.branch_id = NULLIF({{ SelectBranch.selectedOptionValue }}, '')::uuid
+  )
+  AND (
+      NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '') IS NULL
+      OR t.is_active = NULLIF({{ SelectActiveStatus.selectedOptionValue }}, '')::boolean
+  )
+ORDER BY b.name, t.name;

@@ -1,0 +1,4 @@
+SELECT cancel_sales_invoice(
+    NULLIF({{ appsmith.store.currentSalesInvoiceId || TableInvoiceHeader.tableData?.[0]?.sales_invoice_id || "" }}, '')::uuid,
+    require_app_user_id_by_email({{ appsmith.user.email }})
+);
